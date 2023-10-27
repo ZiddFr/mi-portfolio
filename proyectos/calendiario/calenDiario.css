@@ -1,0 +1,160 @@
+*, *:after, *:before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Preloader page */
+#contenedor_carga {
+  background-color: #222;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  z-index: 10000;
+}
+#carga {
+  color: white;
+  font-size:xx-large;
+  height: auto;
+  width: auto;
+}
+
+
+/**/
+html {
+  min-width: 280px;
+  background-color: #008ba7;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.contenedor_auto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.contenedor_columna {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.contenedor_dia {
+  border: 1px solid black;
+  border-radius: 7px;
+  margin: 5px;
+  /*No darle color al texto, va negro por defecto y verde si ha sido agregada una nota*/
+  font-size: large;
+  font-weight: bolder;
+  width: auto;
+  min-width: 100px;
+  height: auto;
+  min-height: 100px;
+}
+#app {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 7px;
+}
+#calendario {
+  font-size: xx-large;
+  width: auto;
+  margin-top: 20px;
+  padding:5px;
+  height: 30px;
+  border-radius: 7px;
+  background-color: #fff;
+  border: transparent;
+  padding: 20px;
+}
+#fecha {
+  margin: 10px;
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+}
+
+.expandir {
+  width: auto;
+  height: auto;
+  border-radius: 7px;
+  background-color:#fff;
+  margin-bottom: 15px;
+  border-color: transparent;
+}
+.expandir:hover, .guardaCambios:hover {
+  cursor: pointer;
+}
+.guardaCambios {
+  font-size: large;
+  width: auto;
+  height: min-content;
+  margin-bottom: 10px;
+  border-radius: 7px;
+  border-color: transparent;
+}
+.guardaCambios .bi {
+  font-size: x-large;
+  font-weight: bolder;
+}
+textarea {
+  margin: 10px;
+  font-size: x-large;
+  height: 4em;
+  transition: all ease-in-out .5s;
+  &:focus {
+    height: 5em;
+    width: 300px;
+  }
+}
+/*buscar forma de que se mantenga el efecto después de haberse focuseado */
+/*
+@keyframes expandir {
+  0% {width: 350px;}
+  50% {width: 450px;}
+  100% {width: 500px;}
+}
+*/
+.expandir .bi{
+  font-size: x-large;
+  font-weight: bolder;
+}
+.activo {
+  background-image: linear-gradient(45deg, #239fb8,#2dd0f1,#00859f);
+  animation: onda 2s ease-in-out infinite;
+  background-size: 10000% 10000%;
+}
+@keyframes onda {
+  0% {background-position: 20% 60%;}
+  25% {background-position: 80% 30%;}
+  75% {background-position: 60% 20%;}
+  100% {background-position: 30% 80%;}
+}
+@media screen and (max-width: 580px) {
+  @keyframes expandir {
+    0% {width: 300px;}
+    100% {width: 400px;}
+  }
+}
+@media screen and (max-width: 470px) {
+  @keyframes expandir {
+    0% {
+      width: 100px;
+      height: 200px;}
+    100% {
+      width: 300px;
+      height: 300px;}
+  }
+}
+@media screen and ( max-width: 310px){
+  @keyframes expandir {
+    to {height: 300px;}
+  }
+}

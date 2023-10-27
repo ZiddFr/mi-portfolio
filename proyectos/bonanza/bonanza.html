@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Metadatos -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Fernando">
+  <meta name="description" content="Aplicación 'Agenda' de Fernando">
+  <!-- Favicon -->
+  <link rel="icon" href="../imagenes/banan.png" type="image/x-icon">
+  <!-- Title -->
+  <title>Bonanza</title>
+    <!--Bootstrap 5.3.2-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap icon 1.11.1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- CSS propio-->
+  <link rel="stylesheet" href="bonanza.css">
+  <!-- js propio -->
+</head>
+<body id="cuerpo-bonanza">
+  <!-- preloader page -->
+  <div id="contenedor_carga">
+    <div id="carga"></div>
+  </div>
+  <!-- nav-bar -->
+  <nav id='navegador' class="navbar navbar-expand-md navbar-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-toggler">
+        <ul class="navbar-nav d-flex justify-content-between align-items-center">
+          <div class="contenedor">
+            <a class="navbar-brand" href="bonanza.html">
+              <div id="logo_pagina" class="logo-pagina contenedor_auto">
+                <img id="img_logo" src="../imagenes/banan.png" alt="Logo de la página web 'Bonanza'.">
+                <div id="yo">Boonaaanza!</div>
+              </div>
+            </a>
+          </div>
+          <li class="nav-item">
+            <form action="">
+              <input type="search" placeholder="Buscar..." name="Buscador" id="buscador">
+              <button type="submit" class="bi bi-search" value=""></button>
+            </form>
+          </li>
+          <li class="nav-item contenedor">
+            <a class="nav-link super" href="#contacto">Información</a>
+            <div id="contieneBolsa">
+              <a id="bolsa" class="nav-link super" href="bolsa.html">Bolsa</a>
+              <div id="contadorCorazon"></div>
+            </div>
+            <div id="enlaces" class="contenedor">
+              <a id="inicio-sesion" class="nav-link super" href="login.html" target="_self">Iniciar sesión</a>
+              <a id="registro" class="nav-link super" href="login.html">Registro</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Ofertas -->
+  <section id="ofertas" class="contenedor_columna">
+    <h2 class="seccion-titulo">¡En oferta!</h2>
+    <div id="carrusel" class="contenedor_auto"></div>
+    <div id="botones" class="contenedor_auto"></div>
+  </section>
+  <!-- Articulos al azar -->
+  <section id="articulos-azar" class="contenedor_columna"><h2>Podría interesarte:</h2></section>
+  <!-- Articulos mas vendidos -->
+  <section id="mas-vendido" class="contenedor_columna"><h2>Artículos más vendidos:</h2></section>
+  <!-- Naturalmente el footer es falso, es meramente decorativo, pues no realizaré esa cantidad de información ni siquiera usando lorem -->
+  <footer id="pie-de-pagina" class="contenedor_columna">
+    <div id="borde-arriba"></div>
+    <div id="contacto" class="pie"><a href="#" target="_blank" rel="noopener noreferrer">Contacto</a></div>
+    <div id="atencion-clientes" class="pie"><a href="#" target="_blank" rel="noopener noreferrer">Atención a clientes</a></div>
+    <div id="acerca-de-nosotros" class="pie"><a href="#" target="_blank" rel="noopener noreferrer">Acerca de nosotros</a></div>
+    <div id="aviso-privacidad" class="pie"><a href="#" target="_blank" rel="noopener noreferrer">Aviso de privacidad</a></div>
+    <div id="terminos-condiciones" class="pie"><a href="#" target="_blank" rel="noopener noreferrer">Términos y condiciones</a></div>
+    <div id="quejas-sugerencias" class="pie"><a href="#" target="_blank" rel="noopener noreferrer">Quejas y sugerencias</a></div>
+    <div id="derechos-de-autor" class="pie" style="color:white">Creado por Fernando (2023) &#169;</div>
+  </footer>
+  <!-- Scripts -->
+  <script src="bonanza.js"></script>
+  <script src="login.js"></script>
+  <!-- Bootstrap 5.3.1 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

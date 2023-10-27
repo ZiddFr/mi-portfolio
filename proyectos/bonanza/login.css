@@ -1,0 +1,81 @@
+/*POR AHORA, luego agregarlo al main css bonanza.css*/
+#cuerpo-login {
+  height: 100%;
+  background-image: linear-gradient(38deg, #000000 1%,#ffea00 90%, #ffed27 9%);
+}
+#navegador {
+  color: black;
+}
+.lista ul {
+  height: 100%;
+}
+.enlaces-en-login {
+  height: 100%;
+
+}
+.enlaces-en-login a {
+  color: black;
+}
+.enlaces-en-login a:hover {
+  color: black;
+  font-size: medium;
+  padding-bottom: 10px;
+}
+.super {
+  color: white;
+}
+.super:hover {
+  color: #ffea00;
+}
+#barra_sesion_registro {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  background-color: #fff584 !important;
+  gap: 5rem;
+}
+#mantenerSesion {
+  accent-color: #847c23;
+  height: 1em;
+  width: 1em;
+}
+#boton_sesion, #boton_registro {
+  font-size: xx-large;
+  font-weight: bolder;
+  cursor: pointer;
+}
+#inicio_de_sesion, #registro_usuario {
+  padding-top: 2rem;
+  width: 0%;
+  overflow-x: hidden;
+  transition: 0.7s;
+  align-self: flex-start;
+}
+.contenido {
+  padding: 2em;
+  border: 0.1px dashed black;
+  border-radius: 7px;
+  background-color: #fff584;
+}
+#pie-de-pagina {
+  margin-top: 1rem;
+}
+#pie-de-pagina a {
+  color:#ffea00;
+}
+
+#pie-de-pagina a:hover {
+  color:chartreuse;
+}
+#derechos-de-autor span {
+  color: white !important;
+}
+@media screen and (max-width: 770px) {
+  #formulario.contenedor {
+    flex-direction: row;
+  }
+  #barra_sesion_registro.contenedor_auto {
+    flex-direction: row;
+    gap: 15px;
+  }
+}
+

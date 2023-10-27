@@ -1,0 +1,790 @@
+/*
+ paleta de colores utilizados
+60% - #008D8C
+30% - #006465
+10% - #00bcbf
+
+iconos # 7ade30 green
+*/
+
+html {
+    margin: 0;
+}
+body{
+    color:white;
+    background-image: linear-gradient(45deg, #00a0a3, #16b4b7, #008D8C);
+    background-size: 10000% 10000%;
+    animation: cuerpo 4s ease-in-out infinite;
+}
+@keyframes cuerpo {
+    0% {background-position: 20% 60%;}
+    25% {background-position: 80% 30%;}
+    75% {background-position: 60% 20%;}
+    100% {background-position: 30% 80%;}
+}
+* {font-family: 'Space Mono', monospace;}
+/* Preloader page */
+#contenedor_carga {
+    background-color: #222;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    z-index: 10000;
+}
+#carga {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position:absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    animation: girar 1.2s linear;
+}
+#carga::after, #carga::before {
+    content: '';
+    position: absolute;
+    border-radius: inherit;
+}
+#carga::before {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(0deg, #00000000 0%, #0abe16 100%);
+}
+#carga::after {
+    height: 85%;
+    width: 85%;
+    background-color: #222;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+@keyframes girar {
+    to {transform: rotate(360deg);}
+}
+
+/* UNION barra navegacion-hero */
+/*#union {
+    background-image:linear-gradient(to bottom, #007c7e, #008D8C);
+}*/
+
+/* Barra de navegacion */
+.navbar {
+    padding: 2rem;
+}
+.navbar-collapse {
+    align-items: center;
+    justify-content: space-between;
+}
+.super:hover {
+    color: white;
+    /*background-image: linear-gradient(to top right, #009d71, #5ccda7);*/
+    background-image: radial-gradient(#00bcbf, #019698);    
+    border-radius: 8px;
+}
+.super:active {
+    transform: scale(0.9);
+}
+.nav-item a{
+    font-size:x-large;
+}
+/* logo-pagina */
+.logo-pagina {
+    animation: vibrar 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    animation-delay: 5s;
+}
+@keyframes vibrar {
+  10%, 90% {transform: translate3d(-1px, 0, 0);}
+  20%, 80% {transform: translate3d(2px, 0, 0);}
+  30%, 50%, 70% {transform: translate3d(-4px, 0, 0);}
+  40%, 60% {transform: translate3d(4px, 0, 0);}
+}
+/* Estilos generales */
+.logo-pagina {
+    display:flex;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.logo-pagina #yo {
+    font-size:x-large;
+}
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 50px;
+    margin: 0 0 50px 0;
+}
+h1 {
+    font-size: 2.5rem;
+    font-family: 'Space Mono', monospace, cursive;
+}
+.seccion-titulo {
+    font-size: 2rem;
+    padding: 15px 0;
+    font-family: 'Space Mono', monospace, cursive;
+}
+.seccion-descripcion {
+    font-size: 1.2rem;
+    color:#000000;
+}
+.seccion-texto {
+    font-size: 1.2rem;
+}
+.btn-info {
+    font-size: 1rem;
+    margin: 20px;
+}
+.text-bg-self {
+    font-weight: 600 !important;
+    color: white;
+    background-color: #00bcbf;
+}
+.texto-negro {
+    color:black;
+}
+.texto-blanco {
+    color: white;
+}
+/* Hero */
+.hero {
+    height: auto;
+    text-align: center;
+    padding-bottom: 50px;
+}
+.hero-principal {
+    padding: 3rem 3rem 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.hero-banano-desarrollador {
+    width: 31%;
+    height: 31%;
+    border-radius: 50%;
+    margin: 20px;
+    z-index: 2;
+    animation: hero-banano-desarrollador 1s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes hero-banano-desarrollador {
+    100% {rotate: y 360deg;} from {opacity: 0;} to {opacity: 1;}
+}
+#calamardo {
+    width: 143px;
+    height: 151.5px;
+    filter: brightness(0%);
+    position: absolute;
+    top: 35%;
+    left: 24%;
+}
+#calamardo:hover {
+    filter: brightness(100%);
+    z-index: 4;
+}
+.aparicion {
+    font-size: 1.5rem;
+    color: black;
+    animation: aparicion-cascada 3.5s;
+    animation-timing-function: ease-in;
+}
+@keyframes aparicion {
+    from {opacity: 0;}to {opacity: 1;}
+}
+#aparicion-dos {
+    font-size:smaller;
+}
+/* hero inferior */
+.hero-inferior {
+    padding-top:  5px;
+}
+/* SECCION SOBRE MI */
+.sobre-mi {
+    padding: 50px 10px 50px 10px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sobre-mi .contenedor {
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.saber-sobre-mi {
+    padding-left: 80px;
+    margin-right: 80px;
+    transition: transform 3s;
+}
+.saber-sobre-mi:hover {
+transform: skewY(-1deg);
+}
+/* .saber-mas { }*/
+.boton-saber {
+    color: #6fff00;
+    border-color: transparent;
+    border-radius: 10px;
+    background-image: linear-gradient(40deg,#00d8d8,#00a1a4,#17b5b8);
+    background-size: 400% 400%;
+    animation: wave 3s ease-in-out infinite;
+}
+.boton-saber:hover {
+    animation: botonVibrar 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+@keyframes botonVibrar {
+    0% {background-position: 20% 60%;}
+    10%, 90% {transform: translate3d(-1px, 0, 0);}
+    20%, 80% {transform: translate3d(2px, 0, 0);}
+    25% {background-position: 80% 30%;}
+    30%, 50%, 70% {transform: translate3d(-4px, 0, 0);}
+    75% {background-position: 60% 20%;}
+    40%, 60% {transform: translate3d(4px, 0, 0);}
+    100% {background-position: 30% 80%;} 
+}
+@keyframes wave {
+    0% {background-position: 20% 60%;}
+    25% {background-position: 80% 30%;}
+    75% {background-position: 60% 20%;}
+    100% {background-position: 30% 80%;}    
+}
+.span-saber::after {
+    content:'Saber más~';
+}
+/* Ver documento fondoGradiente.js para saber cómo funciona este nuevo-contenedor */
+.sobre-mi .nuevo-contenedor {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#contieneCartas {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+#hSaber {
+    padding: 125px 50px 0px;
+}
+#pSaber {
+    padding: 0px 50px 0px;
+}
+/* Cada #carta-imagen es el contenedor de su imagen */
+.sobre-mi .nuevo-contenedor div {
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: cover;
+    overflow: hidden;
+}
+.sobre-mi .nuevo-contenedor #carta-imagen-uno {
+    background-image: url(imagenes/chrono-trigger.png);
+}
+.sobre-mi .nuevo-contenedor #carta-imagen-dos {
+    background-image: url(imagenes/silencio-de-los-inocentes.png);
+}
+.sobre-mi .nuevo-contenedor #carta-imagen-tres {
+    background-image: url(imagenes/siddhartha.png);
+}
+.sobre-mi .nuevo-contenedor #carta-imagen-cuatro {
+    background-image: url(imagenes/flan.png);
+}
+.card {
+    width: 18vw;
+    height: 33vh;
+    border: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+}
+.card:hover {
+    background-repeat: none !important;
+    background-position: none !important;
+    background-image: linear-gradient(40deg,#00d5d5,#00cccf,#007f82) !important;
+    background-size: 300% 300% !important ;
+    animation: carta 2s ease-in-out infinite !important;
+}
+@keyframes carta {
+    0% {background-position: 20% 60%;}
+    25% {background-position: 80% 30%;}
+    75% {background-position: 60% 20%;}
+    100% {background-position: 30% 80%;}
+}
+.card .tools {
+    position:fixed;
+    display:none;
+    border-radius: 10px;
+    z-index: 100;
+}
+.card .tools img{
+    width: 100%;
+    height: 100%;
+}
+.card:hover .tools {
+    display:block;
+}
+.card .texto-contenedor {
+    color: black;
+    font-weight: bolder;
+    background-color: #008d8d9d;
+    width: 100%;
+    height: auto;
+}
+.card:hover .texto-contenedor {
+
+    background: none;
+    margin-bottom: 50px;
+}
+.card .texto-contenedor H4 {
+    font-weight: bold;
+    font-size: 16px;
+}
+.card .texto-contenedor P {
+    font-size: 12px;
+}
+
+/* Boton regresar de la seccion sobre mi, en el nuevo contenedor */
+.div-regresar {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.div-regresar button {
+    margin-top: 25px;
+    color: #6fff00;
+    border-color: transparent;
+    border-radius: 10px;
+    background-image: linear-gradient(40deg,#00d8d8,#00a1a4,#17b5b8);
+    background-size: 200% 200%;
+    animation: cerrar 3s ease infinite;
+}
+@keyframes cerrar {
+    0% {
+        background-position: 20% 60%;
+    }
+    25% {
+        background-position: 80% 30%;
+    }
+    75% {
+        background-position: 60% 20%;
+    }
+    100% {
+        background-position: 30% 80%;
+    }
+}
+/* Experiencia */
+.experiencia {
+    padding: 40px 40px 60px 40px;
+}
+.experiencia .columna {
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: all 0.2s ease-in;
+}
+.experiencia .columna:hover {
+    color: white;
+    background-image: radial-gradient(#00bcbf, #019698, #026d6f);
+}
+.experiencia i {
+    font-size: 2.5rem;
+    color: #7ade30;
+    background-color: #006465;
+    padding: 8px 19px;
+    border-radius: 50%;
+}
+.experiencia-titulo {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.badges-contenedor {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.badge {
+    margin: 5px;
+}
+
+.secondary {
+    border: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Proyectos */
+.proyectos-recientes {
+    padding: 40px;
+}
+.proyectos-recientes img {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    display: block;
+    transition: all 0.2s ease;
+}
+.proyectos-contenedor {
+    padding-top: 60px;
+    margin-bottom: 40px;
+}
+.overlay {
+    transition: all 0.2s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.overlay p {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.proyecto {
+    position: relative;
+}
+.proyecto:hover img {
+    opacity: 0.2;
+}
+.proyecto:hover .overlay {
+    opacity: 1;
+}
+.overlay .iconos-contenedor {
+    display: flex;
+}
+.overlay i {
+    color: black;
+    font-size: 60px;
+    margin: 10px;
+}
+
+/**/
+.masProyectos {
+    color: black;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 1.3rem;
+    background-image: linear-gradient(40deg,#00d8d8,#00a1a4,#17b5b8);
+    background-size: 400% 400%;
+    animation: onda 3s ease-in-out infinite;
+}
+.masProyectos:hover {
+    color: #7ade30;
+
+    animation: vibrando 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes vibrando {
+    0% {background-position: 20% 60%;}
+    10%, 90% {transform: translate3d(-1px, 0, 0);}
+    20%, 80% {transform: translate3d(2px, 0, 0);}
+    25% {background-position: 80% 30%;}
+    30%, 50%, 70% {transform: translate3d(-4px, 0, 0);}
+    75% {background-position: 60% 20%;}
+    40%, 60% {transform: translate3d(4px, 0, 0);}
+    100% {background-position: 30% 80%;} 
+}
+@keyframes onda {
+    0% {background-position: 20% 60%;}
+    25% {background-position: 80% 30%;}
+    75% {background-position: 60% 20%;}
+    100% {background-position: 30% 80%;}    
+}
+
+
+/* muestras */
+#muestras {
+    width: 100%;
+    height: auto;
+}
+#carrusel {
+    width: 100%;
+    height: 100%;
+}
+#botones {
+    width: 100%;
+    margin-top: 20px;
+    gap: 10px;
+}
+#botones #previo, #botones #siguiente{
+    width: 150px;
+    border-radius: 7px;
+    border-style: none;
+    background-color: whitesmoke;
+}
+.objeto {
+    width: 90%;
+    height: 90%;
+    margin: auto;
+}
+.imagenCarrusel {
+    width: 90%;
+    height: auto;
+    border-style: solid;
+    border-radius: 7px 7px 0 0;
+    border-width: 2px 2px 0 2px;
+    border-color: white;
+    
+}
+.contenedor_columna {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor_auto {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor_texto {
+    width: 90%;
+    height: auto;
+    justify-content: center;
+    text-align: center;
+    background-color: #006e70;
+    border-style: solid;
+    border-width: 0 2px 2px 2px;
+    border-color: white;
+    border-radius: 0 0 7px 7px;
+}
+
+h2, h3, h4, p {
+    text-align: center;
+}
+
+/* Mas sobre mi */
+.articulos {
+    min-height: 500px;
+    padding: 30px;
+}
+.articulos .card {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px;
+}
+.articulos .card-header {
+    font-weight: bold;
+}
+
+
+/* Contacto */
+#contacto {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.contacto .container {
+    max-width: 1100px;
+    min-height: 200px;
+    padding: 20px;
+}
+.contacto .rectangulo {
+    margin-top: -5rem;
+    background-color: #006e70;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 2px #00bcbf;
+}
+.contacto .row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.contacto .descripcion {
+    color:white;
+    font-size: 1.2rem;
+}
+.contacto button {
+    color:white;
+    font-weight: bold;
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 1.25em 2em;
+    margin: 10px;
+    border-radius: 100px;
+    transition: all 0.2s ease-in-out;
+}
+.contacto button:hover {
+    background-color: #00bcbf;
+    color:black;
+}
+.contacto button i {
+    color: white;
+    font-size: 1.3rem;
+    transition: all 0.2s ease-in-out;
+}
+.contacto button:hover i {
+    color:black;
+}
+
+/* Boton home */
+#boton-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.405);
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.bi-house-up {
+    color: #00bcbf;
+    font-size: 1.5rem;
+}
+.bi-house-up:hover {
+    font-weight: bolder;
+    font-size: 2rem;
+}
+
+
+/* Pie de pagina (footer) */
+.footer {
+    min-height: 500px;
+}
+.footer-logo {
+    width: 70.375px;
+    height: 53.25px;
+    margin: 10px;
+}
+.footer-texto {
+    font-size: 1.5rem;
+    padding: 20px;
+    margin-bottom: 30px;
+    font-family: 'Space Mono' monospace;
+}
+.iconos-redes-sociales a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    margin: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    transition: all 0.2s ease-in;
+} 
+.iconos-redes-sociales i {
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in;
+}
+.iconos-redes-sociales a:hover {
+    background-color: white;
+    border: 2px solid black;
+}
+.iconos-redes-sociales a:hover i {
+    color:#00bcbf;
+    font-size: 2.1rem;
+    overflow: hidden;
+}
+.derechos-de-autor {
+    font-size: 15px;
+    font-weight: bolder;
+    color: black;
+    padding: 20px;
+}
+
+/* Bootstrap iconos */
+.bi-filetype-html, .bi-filetype-css, .bi-filetype-js {
+    font-size:2em;
+}
+
+/* 
+
+NO ESTÁ HECHO PARA QUE REACCIONE A DISPOSITIVOS MÓBILES, BUSCAR FORMA DE HACER QUE PUEDA REACCIONAR
+
+*/
+
+
+/* Adaptable (RESPONSIVO) */
+
+@media screen and (max-width: 400px) {
+    .overlay p {
+        font-size: 18px;
+    }
+    .overlay i {
+        font-size: 40px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .muestra-imagen {
+        height: 120px;
+        width: 120px;}
+    .muestra-texto {font-size: 18px;}}
+@media screen and (max-width: 514px) {
+    .muestra-imagen {
+        height: 100px;
+        width: 100px;}
+    .muestra-texto {font-size: 14px;}}
+@media screen and (max-width: 348px) {
+    .muestra-imagen {
+        height: 90px;
+        width: 90px;}
+    .muestra-texto, .muestra-info .descripcionProyecto {font-size: 12px;}}
+@media screen and (max-width: 498px ) {
+    .saber-sobre-mi h2 {
+        font-size: 20px;}
+    .saber-sobre-mi p {
+        font-size: 14px;}
+    .boton-saber {
+        border-color: transparent;
+        border-radius: 50%;
+        background-image: linear-gradient(45deg,#510984,rgb(41, 152, 225),#045967);
+        background-size: 400% 400%;
+        animation: wave 5s ease infinite;}
+    @keyframes wave {
+        0% {background-position: 20% 60%;}
+        25% {background-position: 80% 30%;}
+        75% {background-position: 60% 20%;}
+        100% {background-position: 30% 80%;}}
+    .boton-saber .span-saber::after {
+        color: white;
+        font-weight: bold;
+        content:'+';}
+}
+@media screen and (max-width: 326px ) {
+    .saber-sobre-mi h2 {font-size: 15px;}
+    .saber-sobre-mi p {font-size: 11px;}
+}
+@media screen and ( max-width: 767px ) {
+    .navbar-brand {display: none;}
+}
+
+@media screen and ( max-width: 737px){
+    .card {
+        width: 150px;
+        height: 150px;
+    }
+    #contieneCartas {
+        min-width: 150px;
+        min-height: 150px;
+
+    }
+}

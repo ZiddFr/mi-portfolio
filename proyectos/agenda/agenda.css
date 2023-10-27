@@ -1,0 +1,265 @@
+/* ESTILOS GENERALES */
+body {
+  background-color: #005281;
+  display: flex;
+  align-items: center;
+}
+
+input[type=text] {
+  margin-bottom: 5px; 
+  padding-left: 7px;
+  background-color: #686868c5;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+::placeholder {
+  color: white;
+}
+input[type=text]:focus::placeholder {
+  font-size: 40%;
+  font-style: italic;
+}
+
+input[type=text]:focus {
+  background-position: -100% 0;
+  transition: background 4s;
+  animation: parpadeo 0.5s ease-in-out;
+}
+@keyframes parpadeo {
+  0% {background:#11689b;}
+  100% {background: #686868c5;}
+}
+
+/* AGENDA */
+#agenda {
+  width: 100%;
+  min-width: 400px;
+  padding-top: 10px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px
+}
+#muestra-contactos {
+  width: 300px;
+  height: fit-content;
+  padding-bottom: 25px;
+  border: 1px solid black;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+}
+#registro-contactos {
+  height: fit-content;
+
+}
+#formulario section {
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#formulario input[type=text] {
+  min-width: 300px;
+  width: 300px;
+}
+#favoritos {
+  width: 300px;
+  min-width: 280px;
+  height: fit-content;
+  padding-bottom: 25px;
+  border-radius: 7px;
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+.boton {
+  min-width: 280px;
+  padding-left: 4px;
+  background-image: linear-gradient(15deg, #fff,#ffffffb7,#ffffffa7);
+  margin: 5px 10px;
+  border: 2px solid white;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.divNombre {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  overflow-x: hidden;
+}
+.divNombre > div {
+  overflow-x: hidden;
+}
+.divNombre span {
+  width: 80%;
+  font-size: large;
+  font-weight: bold;
+}
+
+/* divs informacion */
+.informacion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+textarea {
+  resize: none;
+  width: 70%;
+  border: transparent;
+  border-radius: 7px;
+  margin-top: 5px;
+  margin-left: 5px;
+  font-weight: 300;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+textarea:focus {
+  margin-left: 10px;
+  outline: none !important;
+  border:1px solid #005281;
+  box-shadow: 0 0 5px #0083da;
+}
+
+.botonIconos {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5px 0;
+  gap: 5px;
+}
+
+/* Botones */
+.botonIconos button, .guardar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #005281b1;
+}
+.expandirMinimizar {
+  width: 30px;
+  height: 30px;
+  margin: 3px 0;
+  border: transparent;
+  border-radius: 30%;
+  background-color: transparent;
+}
+.guardar {
+  background-image: linear-gradient(45deg, #24a3f7, #26f8ff, #24a3f7);
+  background-size: 600% 600%;
+  animation: flash 5s ease infinite;
+}
+.eliminar {
+  background-image: linear-gradient(45deg, #ff0000, #ff9d00, #ff0000);
+  background-size: 600% 600%;
+  animation: flash 5s ease infinite;
+}
+.favorito {
+  background-image: linear-gradient(45deg, #109401, #1aff00, #109401);
+  background-size: 600% 600%;
+  animation: flash 5s ease infinite;
+}
+.modificar {
+  background-image: linear-gradient(45deg, #24a3f7, #26f8ff, #24a3f7);
+  background-size: 600% 600%;
+  animation: flash 5s ease infinite;
+}
+@keyframes flash {
+  0% {background-position: 20% 60%;}
+  25% {background-position: 80% 30%;}
+  75% {background-position: 60% 20%;}
+  100% {background-position: 30% 80%;}
+}
+#registrar {
+  width: fit-content;
+  height: fit-content;
+  background-color: #24a3f7;
+  color: white;
+  border: 1px solid white;
+  border-radius: 7px;
+  padding: 2px 20px;
+}
+.popUp {
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: hidden;
+}
+.popUp .divEnPopUp {
+  background-color: #404040;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 20px;
+  border-radius: 7px;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.popUp .divEnPopUp h1 {
+  text-align: center;
+}
+.popUp .divEnPopUp button {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border: none;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
+
+/* iconos */
+
+.expandirMinimizar .bi-plus-circle {
+  color: rgb(0, 187, 0);
+}
+.expandirMinimizar .bi-dash-circle {
+  color: rgb(255, 0, 0);
+}
+.informacion i {
+  color: #06344f;
+  font-size: 25px;
+}
+
+.guardar {
+  margin: 5px 0;
+}
+.guardar .bi-pencil {
+  color: #06344f;
+}
+.bi-star-fill {
+  animation: multicolor 3s ease infinite;
+}
+@keyframes multicolor {
+  0% {color:#18bbc1}
+  25% {color: #18c16a}
+  50% {color: #1998e7}
+  75% {color: #18c16a}
+  100% {color: #18bbc1}
+}
+/* medias */
+@media screen and (max-width: 920px) {
+  body {
+    justify-content: center;
+  }
+  #agenda {
+    width: 300px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+}

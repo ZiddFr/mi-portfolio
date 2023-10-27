@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!--  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+      // Add smooth scrolling to all links
+        $("a").on('click', function(event) {
+  
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+  
+            // Store hash
+            var hash = this.hash;
+  
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+              scrollTop: $(hash).offset().top
+            }, 800, function(){
+  
+              // Add hash (#) to URL when done scrolling (default click behavior)
+              window.location.hash = hash;
+            });
+          } // End if
+        });
+      });
+    </script>
+    <!--  -->
+    <!-- Metadatos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Fernando">
+    <meta name="description" content="Portafolio de desarrollo web de Fernando">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Bootstrap, React">
+    <!-- Titulo -->
+    <title>Portafolio</title>
+    <!-- Favicon -->
+    <link rel="icon" href="imagenes\banan.png" type="image/x-icon">
+    <!--Bootstrap 5.3.2-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap icon 1.11.1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="portfolio.css">
+  </head>
+  <body>
+    <!-- Preloader page -->
+    <div id="contenedor_carga">
+      <div id="carga"></div>
+    </div>
+    <!-- Boton Home -->
+    <a href="#focus-home">
+      <div id="boton-home">
+        <span id="home"><i class="bi bi-house-up"></i></span>
+      </div>
+    </a>
+    <!-- Barra de navegacion y Seccion Hero -->
+    <div id="focus-home" class="seccion-clara">
+      <!-- Barra de navegacion -->
+      <nav id='navigator' class="navbar navbar-expand-md navbar-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler" aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-toggler">
+            <div class="logo-pagina">
+              <a class="navbar-brand" href="#">
+                <img src="imagenes/banan.png" width="50" alt="Logo de la página web">
+              </a>
+              <span id="yo">Fernando</span>
+            </div>
+            <ul class="navbar-nav d-flex justify-content-center align-items-center">
+              <li class="nav-item">
+                <a class="nav-link super active" aria-current="page" href="#sobre-mi">Sobre mí</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link super" href="#proyectos">Proyectos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link super" href="#contacto">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Seccion Hero -->
+      <section id="seccion-hero" class="hero d-flex flex-column justify-content-center align-items-strech">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <div id="hero-principal" class="hero-principal">
+            <img id="hero-banano-desarrollador" class="hero-banano-desarrollador" src="imagenes/fernando.jpg" alt="Un racimo de banano">
+            <h1 class="letra-por-letra"></h1>
+            <!-- Contemplar la idea de convertir "aplicaciones web" en un link directo a proyectos -->
+            <h2  class="aparicion">Soy un programador autodidacta fullstack con preferencia en el desarrollo web.</h2>
+          </div>
+          <div class="hero-inferior">
+            <span id="aparicion-dos"></span>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Sobre mi -->
+    <section id="sobre-mi" class="sobre-mi seccion-oscura" tabindex="-1">
+      <div id="contenedor" class="contenedor">
+        <div class="saber-sobre-mi">
+          <h2 class="seccion-titulo">Conóceme:</h2>
+          <p class="seccion-texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id odio voluptate enim corporis ad voluptatem similique asperiores dolorum recusandae nihil pariatur eum autem itaque sint dolor aut, nisi facilis quisquam.</p>
+        </div>
+        <div class="saber-mas">
+          <button type="button" id="boton-saber" class="boton-saber">
+            <span class="span-saber">
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Experiencia -->
+    <section class="experiencia seccion-clara">
+      <span style="font-size: xx-large; padding-bottom: 20px;">Mis estudios</span>
+      <div class="container-fluid text-center">
+        <div class="row">
+          <!-- Front-End -->
+          <div class="columna col-12 col-md-4">
+            <i class="bi bi-laptop"></i>
+            <p class="experiencia-titulo">Frontend</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptatibus omnis, adipisci ad et architecto enim autem, magni amet voluptates, odit quod cum illum dolore necessitatibus laborum sed laudantium dolores.</p>
+            <div class="badges-contenedor">
+              <span class="badge text-bg-self">HTML</span>
+              <span class="badge text-bg-self">CSS</span>
+              <span class="badge text-bg-self">JavaScript</span>
+            </div>
+          </div>
+          <!-- Back-End -->
+          <div class="columna col-12 col-md-4">
+            <i class="bi bi-laptop"></i>
+            <p class="experiencia-titulo">Backend</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptatibus omnis, adipisci ad et architecto enim autem, magni amet voluptates, odit quod cum illum dolore necessitatibus laborum sed laudantium dolores.</p>
+            <div class="badges-contenedor">
+              <div class="secondary">
+                <span class="badge text-bg-self">Python</span>
+                <span class="badge text-bg-secondary">Pandas</span>
+                <span class="badge text-bg-secondary">Django</span>
+              </div>
+              <span class="badge text-bg-self">Java</span>
+            </div>
+          </div>
+          <!-- Estudiante -->
+          <div class="columna col-12 col-md-4">
+            <i class="bi bi-laptop"></i>
+            <p class="experiencia-titulo">Estudiante</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptatibus omnis, adipisci ad et architecto enim autem, magni amet voluptates, odit quod cum illum dolore necessitatibus laborum sed laudantium dolores.</p>
+            <div class="badges-contenedor">
+              <span class="badge text-bg-self">Desarrollo web</span>
+              <span class="badge text-bg-self">SQL</span>
+              <div class="secondary">
+                <span class="badge text-bg-self">Python</span>
+                <span class="badge text-bg-secondary">Django</span>
+                <span class="badge text-bg-secondary">Kivy</span>
+              </div>
+              <span class="badge text-bg-self">Java</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Proyectos -->
+    <section id="proyectos" class="proyectos-recientes seccion-oscura d-flex flex-column">
+      <h2 class="seccion-titulo texto-negro">Mis proyectos.</h2>
+      <h3 class="seccion-descripcion">Estos son algunos de mis proyectos creados:</h3>
+      <!-- Galeria de proyectos -->
+      <div class="container text-center proyectos-contenedor">
+        <div class="row">
+          <!-- Proyecto 1 -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="proyecto">
+              <img src="imagenes/primer-proyecto.png" alt="Proyecto 1">
+              <div class="overlay">
+                <p>Proyecto 1</p>
+                <div class="iconos-contenedor">
+                  <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-github"></i>
+                  </a>
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-laptop"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Proyecto 2 -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="proyecto">
+              <img src="imagenes/segundo-proyecto.png" alt="Proyecto 2">
+              <div class="overlay">
+                <p>Proyecto 2</p>
+                <div class="iconos-contenedor">
+                  <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-github"></i>
+                  </a>
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-laptop"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Proyecto 3 -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="proyecto">
+              <img src="imagenes/tercer-proyecto.png" alt="Proyecto 3">
+              <div class="overlay">
+                <p>Proyecto 3</p>
+                <div class="iconos-contenedor">
+                  <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-github"></i>
+                  </a>
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-laptop"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Proyecto 4 -->
+          <!-- <div class="col-12 col-md-6 col-lg-4">
+            <div class="proyecto">
+              <img src="imagenes/proyecto-4.png" alt="Proyecto 4">
+              <div class="overlay">
+                <p>Proyecto 4</p>
+                <div class="iconos-contenedor">
+                  <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-github"></i>
+                  </a>
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-laptop"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <a href="" target="_blank" rel="noopener noreferrer">
+        <button type="button" class="btn btn-info masProyectos">
+          Ver más proyectos
+          <i class="bi bi-arrow-right-circle-fill"></i>
+        </button>
+      </a>
+    </section>
+    <!-- Carrusel imagenes - Muestras de los proyectos -->
+    <section id="muestras" class="muestras seccion-clara">
+      <h2 class="seccion-titulo">Imágenes de muestra</h2>
+      <!-- carrusel -->
+      <div id="carrusel" class="contenedor_columna"></div>
+      <div id="botones" class="contenedor_auto"></div>
+    </section>
+    <!-- Contacto -->
+    <section id="contacto" class="contacto seccion-oscura">
+      <div class="container">
+        <div class="container text-center rectangulo d-flex justify-content-evenly">
+          <div class="row">
+            <div class="col-12 col-md-4 seccion-titulo">
+              ¡Contáctame!
+            </div>
+            <div class="col-12 col-md-4 descripcion">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam tempora mollitia ex rem, harum vel eveniet soluta eaque porro odit!
+            </div>
+            <div class="col-12 col-md-4">
+              <a href="mailto:mr_banano@bananero.com">
+                <button type="button">
+                  Contacto
+                  <i class="bi bi-envelope-check"></i>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Pie de página (footer) -->
+      <footer class=" d-flex flex-column align-items-center justify-content-center">
+        <img class="footer-logo" src="imagenes/banan.png" alt="Logo del portafolio">
+        <p class="footer-texto text-center">Aprendo, experimento y creo todos los días.</p>
+        <div class="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-github"></i> <!-- Github -->
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-linkedin"></i> <!-- LinkedIn -->
+          </a>
+          <!-- <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-twitter"></i>  Twitter
+          </a> -->
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-instagram"></i> <!-- Instagram -->
+          </a>
+          <!-- <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-facebook"></i> Facebook
+          </a> -->
+          <a href="mailto:mr_banano@bananero.com" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-envelope"></i> <!-- Correo -->
+          </a>
+        </div>
+        <div class="derechos-de-autor">Creado por Fernando (2023) &#169;</div>
+      </footer>
+    </section>
+    <!-- scripts -->
+    <script src="portfolio.js"></script>
+    <!-- Boostrap 5.3.2 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+body {
+    color: black;
+    background-image: linear-gradient(45deg, #1e5d74, #2f88a9, #3ba8cf);
+    background-size: 10000% 10000%;
+    animation: cuerpo-degradado 5s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes cuerpo-degradado {
+    0% {background-position: 20% 60%;}
+    25% {background-position: 80% 30%;}
+    75% {background-position: 60% 20%;}
+    100% {background-position: 30% 80%;}
+}
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+#seccion-tarea-nueva {
+    width: 100%;
+    height: auto;
+}
+form {
+    padding: 25px 0;
+}
+#nueva-tarea {
+    width: 100%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#caja-de-tarea {
+    width: 260px;
+    background-color: #e6e6e6;
+    border: none;
+    border-radius: 5px;
+    resize: none;
+}
+#caja-de-nota {
+    width: 260px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+#nueva-tarea button {
+    width: fit-content;
+    padding: 0 10px;
+    border-radius: 10px;
+    border: transparent;
+    background-size: contain;
+    background-image: linear-gradient(60deg, #45c4f2,#72b9d2ce,#98c2d29a);
+}
+#nueva-tarea button:hover {
+    color:white;
+    background-image: linear-gradient(-60deg, #45c4f2,#72b9d2ce,#98c2d29a);
+    animation: botonagregar 100ms ease-in;
+    animation-iteration-count: 1;
+}
+@keyframes botonagregar {
+    10%, 60% {transform: translate3d(-1px, 1px, 1px);}
+    20%, 70% {transform: translate3d(-2px, -2px, 2px);}
+    30%, 80% {transform: translate3d(2px, 2px, 2px);}
+    40%, 90% {transform: translate3d(1px, -1px, 1px);}
+}
+.contenedor-tareas {
+    display: flex;
+    gap: 10px;
+}
+#muestra-tarea {
+    min-width: 300px;
+    border: 1px solid black;
+    border-radius: 7px;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 10px 20px 10px;
+}
+#importante {
+    min-width: 300px;
+    font-weight: bolder;
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 5px 10px 20px 10px;
+    flex-direction: column !important;
+}
+.tresBotones, .caja {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Elementos creados desde JavaScript */
+.division {
+    flex-direction: row !important;
+    padding: 5px;
+    gap: 5px;
+}
+.tarea {
+    min-width: 300px;
+    border: 1px solid white;
+    border-radius: 7px;
+    background-image: linear-gradient(to bottom right ,#45c4f2,#72b9d2ce,#98c2d29a );
+    margin-bottom:2px;
+}
+.area-texto-tarea {
+    resize: none;
+    margin: 5px 0;
+}
+.divNota {
+    width: 96.5%;
+}
+.area-texto-nota {
+    width: 100%;
+    resize: none;
+}
+.area-texto-nota:focus {
+    background-position: -100% 0;
+    transition: background 4s;
+    animation: parpadeo 1s ease-in-out;
+}
+.botonGuardar, .botonNota, .boton-eliminar{
+    background-color: transparent;
+    border: transparent;
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
+}
+@keyframes parpadeo {
+    0% {background:rgb(134, 255, 123)}
+    100% {background: white}
+}
+
+.bi-exclamation-circle {
+    color: red;
+    background-color: transparent;
+    width: fit-content;
+    border-radius: 50%;
+    border: none;
+    background-size: contain;
+}
+.bi-exclamation-circle-fill {
+    color: red;
+    background-color: transparent;
+    width: fit-content;
+    border-radius: 50%;
+    border: none;
+    background-size: contain;
+    font-size: larger;
+}
+
+@media screen and (max-width: 950px) {
+    .contenedor-tareas {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+}

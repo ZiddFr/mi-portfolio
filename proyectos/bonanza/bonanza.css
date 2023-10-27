@@ -1,0 +1,304 @@
+/* Preloader page */
+#contenedor_carga {
+  background-color: #222;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  z-index: 10000;
+}
+#carga {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  position:absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  animation: girar 1.2s linear;
+}
+#carga::after, #carga::before {
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+}
+#carga::before {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(0deg, #00000000 0%, #3d89d5 100%);
+}
+#carga::after {
+  height: 85%;
+  width: 85%;
+  background-color: #222;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+@keyframes girar {
+  to {transform: rotate(360deg);}
+}
+
+
+/* estilos generales */
+* {
+  box-sizing:content-box
+}
+#cuerpo-bonanza {
+  background-image: linear-gradient(38deg, #000000 1%, #ffea00 99%);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contenedor_columna {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:15px;
+}
+.contenedor_auto {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap:15px;
+}
+.contenedor_texto {
+  justify-content: center;
+  text-align: center;
+  background-color: #dadada;
+  border-radius: 0 0 7px 7px;
+}
+h3, h4, p {
+  text-align: center;
+  text-transform: capitalize;
+}
+/* nav-bar */
+#navegador {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+ul {
+  width: 100%;
+}
+li {
+  font-size: x-large;
+}
+#buscador {
+  border-radius: 7px;
+  border-top: hidden;
+  border-left: hidden;
+}
+
+#img_logo {
+  width: 50px !important;
+  height: 50px !important;
+}
+#yo {
+  font-size: larger;
+}
+
+/* OFERTAS */
+#ofertas {
+  width: 100%;
+  height: 800px;
+  max-height: 800px;
+}
+#ofertas img {
+  border-radius: 7px 0 0 7px;
+  width: 485px;
+  max-width: 485px;
+  height: 485px;
+  max-height: 485px;
+}
+#carrusel {
+  width: auto;
+  height: 90%;
+}
+#botones #previo, #botones #siguiente{
+  width: 150px;
+  border-radius: 7px;
+  border-style: none;
+  background-color: whitesmoke;
+}
+.objeto {
+  width: 1170px;
+  height: 600px;
+  max-height: inherit;
+  gap: 0 !important;
+}
+.objeto .contenedor_texto {
+  width: 485px;
+  max-width: 485px;
+  height: 485px;
+  max-height: 485px;
+  border-radius: 0 7px 7px 0;
+}
+/* al azar */
+#articulos-azar {
+  font-size: large;
+  width: 100%;
+  height: 800px;
+  max-height: 800px;
+}
+#articulos-azar img {
+  width: 300px;
+  max-width: 300px;
+  height: 300px;
+  max-height: 300px;
+  border-radius: 7px 7px 0 0;
+}
+.muestraAzar {
+  max-width: 300px;
+  height: 650px;
+  border-radius: 7px;
+  gap: 0 !important;
+}
+
+.muestraAzar .contenedor_texto {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  max-height: 300px;
+}
+/* mas vendido */
+#mas-vendido {
+  width: 100%;
+  height: 800px;
+  max-height: 800px;
+}
+#mas-vendido img {
+  width: 300px;
+  max-width: 300px;
+  height: 300px;
+  max-height: 300px;
+  border-radius: 7px 7px 0 0;
+}
+.masVendido {
+  width: 300px;
+  max-width: 300px;
+  height: 700px;
+  border-radius: 7px;
+  gap: 0 !important;
+}
+.masVendido .contenedor_texto {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  max-height: 300px;
+}
+
+/* FOOTER */
+#pie-de-pagina {
+  color: black;
+  padding-top: 1rem;
+}
+#borde-arriba {
+  width: 60%;
+  height: 0;
+  border-top: 1px solid black;
+}
+.pie a {
+  color:#ffea00;
+}
+.pie a:hover {
+  color: chartreuse;
+}
+#derechos-de-autor {
+  font-weight: bolder;
+}
+@media screen and (max-width: 990px ) {
+  li {
+    font-size: large;
+  }
+  .objeto img {
+    border-radius: 7px 7px 0 0;
+    width: 300px !important;
+    max-width: 300px !important;
+    height: 300px !important;
+    max-height: 300px !important;
+
+  }
+  .objeto .contenedor_texto {
+    width: 300px;
+    max-width: 300px;
+    height: 300px;
+    max-height: 300px;
+    border-radius: 0 0 7px 7px;
+  }
+  #ofertas {
+    height: 400px;
+  }
+}
+@media screen and (max-width: 952px ) {
+  li {
+    font-size: medium;
+  }
+  .contenedor_auto {
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+  }
+  .objeto img {
+    border-radius: 7px 7px 0 0;
+    width: 300px;
+    max-width: 300px;
+    height: 300px;
+    max-height: 300px;
+  }
+  .contenedor_texto {
+    width: 300px;
+    max-width: 300px;
+    height: 300px;
+    max-height: 300px;
+  }
+  #ofertas, .objeto, #articulos-azar, #mas-vendido {
+    height: auto;
+    max-height: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  #navegador {
+    height: auto;
+    color: black;
+    text-align: center;
+  }
+  #navegador a {
+    color: black;
+  }
+  #navegador a:hover {
+    padding-left: 10px;
+    font-size: x-large;
+    text-shadow: 2px 2px white;
+  }
+  .contenedor {
+    flex-direction: column;
+  }
+  #navegador button {
+    z-index: 3;
+  }
+  #navbar-toggler{
+    z-index: 2;
+    color: black !important;
+    background-color: #ffea00ee !important;
+    width: 100%;
+    border-radius: 7px 0 7px 7px;
+    margin-top: -40px;
+  }
+}
+/* poner todas las clases que contienen a cada artículo */
