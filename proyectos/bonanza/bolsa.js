@@ -76,7 +76,7 @@ const usuarioEnLogin = () => {
     noSesion.textContent = 'No iniciaste sesión.'
     const noBananaToday = document.createElement('img')
     noBananaToday.setAttribute('class','nobanana')
-    noBananaToday.setAttribute('src','noBananaToday.jpg')
+    noBananaToday.setAttribute('src','/noBananaToday.jpg')
     muestraContenido.appendChild(noSesion)
     muestraContenido.appendChild(noBananaToday)
   }
