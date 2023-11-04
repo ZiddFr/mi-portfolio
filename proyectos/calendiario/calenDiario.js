@@ -38,7 +38,7 @@ const asignaFecha = () => {
 }
 window.onload=function(){
   let dia = fecha.getDate()
-  let mes = fecha.getMonth()+1
+  let mes = fecha.getMonth()
   let año = fecha.getFullYear()
   calendario.value = `${año}-${mes}-${dia}`
   asignaFecha()
