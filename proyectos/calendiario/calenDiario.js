@@ -1,14 +1,11 @@
-// por alguna razón que aun no investigo, al ingresar una fecha directamente que no sea del mes actual en el input, 
-//me crea divs para ese mes diferente sin eliminar los del mes actual
 function pageLoader() {
   let contenedor=document.getElementById('contenedor_carga')
   contenedor.style.visibility='hidden'
   contenedor.style.opacity='0'
 }
 setTimeout(pageLoader, 1000)
-
-let fecha = new Date()
 const almacenamiento = window.localStorage
+let fecha = new Date()
 const calendario = document.getElementById('calendario')
 const fechaElegida = document.getElementById('fecha')
 const app = document.getElementById('app')
@@ -18,11 +15,8 @@ const treintaYUno = ['Enero','Marzo','Mayo',,'Julio','Agosto',,'Octubre','Diciem
 const treinta = ['Abril','Junio','Septiembre','Noviembre']
 const mesEspecial = ['Febrero']
 const diasDeSemana = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado']
-let info = JSON.parse(almacenamiento.getItem('calendario'))
-
 const asignaFecha = () => {
   let diaSemana = fecha.getDay()
-  console.log(diaSemana)
   let fechaInput = calendario.value
   const fragmentoDia = parseInt(fechaInput.slice(8,10))
   const fragmentoMes = parseInt(fechaInput.slice(5,7))
@@ -37,9 +31,9 @@ const asignaFecha = () => {
   return diaMesAño
 }
 window.onload=function(){
-    let dia = String(fecha.getDate()).padStart(2,'0')
-    let mes = String(fecha.getMonth()+1).padStart(2,'0')
-    let año = String(fecha.getFullYear())
+  let dia = String(fecha.getDate()).padStart(2,'0')
+  let mes = String(fecha.getMonth()+1).padStart(2,'0')
+  let año = String(fecha.getFullYear())
   calendario.value = `${año}-${mes}-${dia}`
   asignaFecha()
   generaRecuadros()
@@ -69,7 +63,6 @@ const generaRecuadros = () => {
   let dias = cuantosDias()
   const divsDias = (dias) => {
     let diaActual = fecha.getDate()
-    console.log(diaActual)
     const seccionRecuadrosDias = document.createElement('section')
     seccionRecuadrosDias.setAttribute('id',`${meses[diaMesAño['mes']-1]} `)
     seccionRecuadrosDias.setAttribute('class','seccion_calendario contenedor_auto')
@@ -83,19 +76,23 @@ const generaRecuadros = () => {
       divDia.setAttribute('class','contenedor_dia contenedor_columna')
       const titulo = document.createElement('p')
       if ( i+1 == diaActual ){
-        console.log(i)
         titulo.innerText = `${diasDeSemana[fecha.getDay()]} ${i+1} ${meses[diaMesAño['mes']-1]}`
       } else {
         titulo.innerText = `${i+1} ${meses[diaMesAño['mes']-1]}`
       }
-      for ( let k=0; k<info.length; k++ ) {
-        let fechaAlmacenada = info[k]['fecha'].slice(0,info[k]['fecha'].lastIndexOf('_')).replace('_',' ')
-        if( titulo.textContent == fechaAlmacenada ){
-          titulo.style.color = 'white'
-          divDia.style.backgroundColor = '#34b9d4'
-        } else {
-          continue
+      let info = JSON.parse(almacenamiento.getItem('calendario'))
+      if ( info != null ) {
+        for ( let k=0; k<info.length; k++ ) {
+          let fechaAlmacenada = info[k]['fecha'].slice(0,info[k]['fecha'].lastIndexOf('_')).replace('_',' ')
+          if( titulo.textContent == fechaAlmacenada ){
+            titulo.style.color = 'white'
+            divDia.style.backgroundColor = '#34b9d4'
+          } else {
+            continue
+          }
         }
+      } else {
+        almacenamiento.setItem('calendario',JSON.stringify(info))
       }
       divDia.append(titulo)
       const expandir = document.createElement('button')
@@ -115,7 +112,7 @@ const generaRecuadros = () => {
           const textArea = document.createElement('textarea')
           textArea.setAttribute('id',`${i+1}_${meses[diaMesAño['mes']-1]}_${diaMesAño['año']}`)
           textArea.setAttribute('class','textArea')
-          if ( info != null ) {
+          if ( info ) {
             for ( let i=0; i<info.length; i++ ) {
               if ( textArea.id == info[i]['fecha']) {
                 textArea.value = info[i]['nota']
@@ -174,7 +171,7 @@ const generaRecuadros = () => {
   }
 }
 const rastreaDia = () => {
-  let dia = fecha.getDate()
+  let dia = String(fecha.getDate()).padStart(2,'0')
   const diaBuscado = document.getElementById(`Dia-${dia}`)
   diaBuscado.classList.add('activo')
 
@@ -185,7 +182,6 @@ const rastreaDia = () => {
   }, 750);
   diaBuscado.childNodes[1].click()
 }
-
 const rastreaDiaSeleccionado = () => {
   let fechaSeleccionada = document.getElementById('calendario').value.slice(8)
   const diaBuscado = document.getElementById(`Dia-${fechaSeleccionada}`)
