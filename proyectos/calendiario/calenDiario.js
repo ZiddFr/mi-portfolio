@@ -37,9 +37,9 @@ const asignaFecha = () => {
   return diaMesAño
 }
 window.onload=function(){
-  let dia = fecha.getDate()
-  let mes = fecha.getMonth()
-  let año = fecha.getFullYear()
+    let dia = String(fecha.getDate()).padStart(2,'0')
+    let mes = String(fecha.getMonth()+1).padStart(2,'0')
+    let año = String(fecha.getFullYear())
   calendario.value = `${año}-${mes}-${dia}`
   asignaFecha()
   generaRecuadros()
