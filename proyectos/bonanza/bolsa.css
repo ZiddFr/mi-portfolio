@@ -9,7 +9,6 @@
   width: 75%;
   height: 100%;
   padding-bottom: 25px;
-  /*background-image: radial-gradient(circle at var(--mouse-x) var(--mouse-y), #3d89d5 40px,#195a9c 200px);*/
 }
 #contenido_de_bolsa {
   margin: 15px;
@@ -34,7 +33,6 @@
   font-weight: bolder !important;
   color: aliceblue !important;
 }
-
 .contenidoBolsa {
   width: 100% !important;
   max-width: 100% !important;
@@ -51,32 +49,3 @@
 .icono_estrella i {
   color:#ffea00;
 }
-/* RECUERDA ESTO */
-
-/*
-para verlo de nuevo, buscar la página de kira-teachings
-background-image: linear-gradient(150deg, #fff 75%, #ccc 25%)
-*/
-
-/*
-probar utilizando @media para darle medidas en lugar de hacerlo como lo usual:
-
-.ejemplo {
-  width: 500px
-}
-------
-Usando solo medias para darle medidas en lugar de hacerlo como arriba para luego batallar y darle medidas a cada rato con diferentes medias
-
-@media screen and (max-width: 1000px) {
-  .ejemplo {
-    width: 500px;
-  }
-}
-@media screen and (max-width: 800px){
-  .ejemplo {
-    width: 300px;
-  }
-}
-
-
-*/
