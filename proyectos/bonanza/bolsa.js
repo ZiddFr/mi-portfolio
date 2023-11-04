@@ -1,12 +1,13 @@
 const almacenamientoBolsa = localStorage
-const registroDeUsuarios = JSON.parse(almacenamientoBolsa.getItem('registroUsuarios'))
-const iDDeUsuario = JSON.parse(almacenamientoBolsa.getItem('inicioSesion'))
+const registroDeUsuarios = almacenamientoBolsa.getItem('registroUsuarios') ? JSON.parse(almacenamientoBolsa.getItem('registroUsuarios')) : false;
+const iDDeUsuario = almacenamientoBolsa.getItem('inicioSesion') ? JSON.parse(almacenamientoBolsa.getItem('inicioSesion')) : false;
 const muestraContenido = document.getElementById('contenido_de_bolsa')
-const articulosAñadidos = registroDeUsuarios[iDDeUsuario]['iniciaSesion']['bolsa']['articulos']
+const articulosAñadidos = registroDeUsuarios ? registroDeUsuarios[iDDeUsuario]['iniciaSesion']['bolsa']['articulos'] : false;
 const recuperaInfoBolsa = () => {
 fetch('https://fakestoreapi.com/products')
   .then(response => response.json())
   .then(data => {
+    console.log(articulosAñadidos)
     for (let i=0; i<data.length; i++) {
       for ( let j=0; j<articulosAñadidos.length; j++) {
         if ( data[i]['id'] == articulosAñadidos[j] ) {
@@ -47,7 +48,8 @@ fetch('https://fakestoreapi.com/products')
   .catch(error => console.log(error))
 }
 const usuarioEnLogin = () => {
-  if ( registroDeUsuarios[iDDeUsuario]['iniciaSesion']['hizoLogin'] == true ) {
+  const iniciadaSesion = registroDeUsuarios ? registroDeUsuarios[iDDeUsuario]['iniciaSesion']['hizoLogin'] : false;
+  if ( iniciadaSesion ) {
     recuperaInfoBolsa()
   } else {
     const noSesion = document.createElement('p')
