@@ -56,7 +56,7 @@ const usuarioEnLogin = () => {
     muestraContenido.appendChild(noSesion)
     const noBananaToday = document.createElement('img')
     noBananaToday.setAttribute('class','nobanana')
-    noBananaToday.setAttribute('src','noBananaToday.jpg')
+    noBananaToday.setAttribute('src','./noBananaToday.jpg')
     noBananaToday.setAttribute('alt','No iniciaste sesión')
     muestraContenido.appendChild(noBananaToday)
   }
