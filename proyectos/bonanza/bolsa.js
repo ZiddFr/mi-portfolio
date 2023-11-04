@@ -7,7 +7,6 @@ const recuperaInfoBolsa = () => {
 fetch('https://fakestoreapi.com/products')
   .then(response => response.json())
   .then(data => {
-    console.log(articulosAñadidos)
     for (let i=0; i<data.length; i++) {
       for ( let j=0; j<articulosAñadidos.length; j++) {
         if ( data[i]['id'] == articulosAñadidos[j] ) {
@@ -15,14 +14,10 @@ fetch('https://fakestoreapi.com/products')
           divContenido.setAttribute('class','contenidoBolsa contenedor_auto')
           const divContTexto = document.createElement('div')
           divContTexto.setAttribute('class','textoBolsa contenedor_columna')
-          
-          //información de los artículos
           const hTitulo = document.createElement('h2')
           hTitulo.textContent = `${data[i]['title']}`
           const hPrecio = document.createElement('h3')
           hPrecio.textContent = `$${data[i]['price']}`
-          //const pDescripcion = document.createElement('p')
-          //pDescripcion.textContent = `${data[i]['description']}`
           const hCategoria = document.createElement('h4')
           hCategoria.textContent = `${data[i]['category']}`
           const imagenArticulo = document.createElement('img')
@@ -58,11 +53,11 @@ const usuarioEnLogin = () => {
     const noSesion = document.createElement('p')
     noSesion.setAttribute('class','noSesionP')
     noSesion.textContent = 'No iniciaste sesión.'
+    muestraContenido.appendChild(noSesion)
     const noBananaToday = document.createElement('img')
     noBananaToday.setAttribute('class','nobanana')
-    noBananaToday.setAttribute('src','../../noBananaToday.jpg')
+    noBananaToday.setAttribute('src','noBananaToday.jpg')
     noBananaToday.setAttribute('alt','No iniciaste sesión')
-    muestraContenido.appendChild(noSesion)
     muestraContenido.appendChild(noBananaToday)
   }
 }
