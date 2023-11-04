@@ -92,6 +92,7 @@ const generaRecuadros = () => {
           }
         }
       } else {
+        let info = []
         almacenamiento.setItem('calendario',JSON.stringify(info))
       }
       divDia.append(titulo)
