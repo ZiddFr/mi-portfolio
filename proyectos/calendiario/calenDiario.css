@@ -5,6 +5,13 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+html {
+  min-width: 280px;
+  background-color: #008ba7;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
 /* Preloader page */
 #contenedor_carga {
   background-color: #222;
@@ -22,16 +29,7 @@
   height: auto;
   width: auto;
 }
-
-
-/**/
-html {
-  min-width: 280px;
-  background-color: #008ba7;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
+/* Estilos generales */
 .contenedor_auto {
   display: flex;
   flex-wrap: wrap;
@@ -49,14 +47,15 @@ html {
 .contenedor_dia {
   border: 1px solid black;
   border-radius: 7px;
-  margin: 5px;
-  /*No darle color al texto, va negro por defecto y verde si ha sido agregada una nota*/
   font-size: large;
   font-weight: bolder;
   width: auto;
-  min-width: 100px;
+  min-width: 150px;
   height: auto;
-  min-height: 100px;
+  min-height: 150px;
+}
+.titulo_dia {
+  padding: 5px;
 }
 #app {
   width: 100%;
@@ -80,17 +79,20 @@ html {
   font-weight: bold;
   text-align: center;
 }
-
 .expandir {
-  width: auto;
+  width: 70px;
   height: auto;
   border-radius: 7px;
   background-color:#fff;
   margin-bottom: 15px;
   border-color: transparent;
+  transition: all ease-in-out 1s;
 }
 .expandir:hover, .guardaCambios:hover {
   cursor: pointer;
+}
+.abierto {
+  background-color: #2dd0f1;
 }
 .guardaCambios {
   font-size: large;
@@ -105,23 +107,20 @@ html {
   font-weight: bolder;
 }
 textarea {
-  margin: 10px;
+  width: 80%;
   font-size: x-large;
-  height: 4em;
+  min-height: 2em;
+  resize: vertical;
   transition: all ease-in-out .5s;
-  &:focus {
-    height: 5em;
-    width: 300px;
+}
+@keyframes focusExpandir {
+  from {
+    width: 50%;
   }
+  to {
+    width: 80%;
+    min-height: 5em;}
 }
-/*buscar forma de que se mantenga el efecto después de haberse focuseado */
-/*
-@keyframes expandir {
-  0% {width: 350px;}
-  50% {width: 450px;}
-  100% {width: 500px;}
-}
-*/
 .expandir .bi{
   font-size: x-large;
   font-weight: bolder;
@@ -137,6 +136,7 @@ textarea {
   75% {background-position: 60% 20%;}
   100% {background-position: 30% 80%;}
 }
+/* medias */
 @media screen and (max-width: 580px) {
   @keyframes expandir {
     0% {width: 300px;}
