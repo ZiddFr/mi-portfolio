@@ -79,6 +79,7 @@ const generaRecuadros = () => {
       }
       divDia.setAttribute('class','contenedor_dia contenedor_columna')
       const titulo = document.createElement('p')
+      titulo.setAttribute('id',`titulo ${i} ${mesDelAnio} ${anioExtraido}`)
       titulo.setAttribute('class','titulo_dia')
       if ( i < 10 ) {
         fechaReal = String(`${anioExtraido}-${mesExtraido}-0${i}`)
@@ -89,11 +90,11 @@ const generaRecuadros = () => {
       mesDelAnio = new Date(`${fechaReal}T00:00`).toLocaleDateString('default',{month:'long'})
       titulo.innerText = `${diaDeLaSemana} ${i} ${mesDelAnio}`
       let info = JSON.parse(almacenamiento.getItem('calendario'))
-      if ( info != null ) {
+      let fechaId = titulo.id.slice(7).toLowerCase()
+      if ( info ) {
         for ( let k=0; k<info.length; k++ ) {
-          let fechaAlmacenada = info[k]['fecha'].slice(0,info[k]['fecha'].lastIndexOf('_')).replace('_',' ')
-          if( titulo.textContent == fechaAlmacenada ){
-            titulo.style.color = 'white'
+          let fechaAlmacenada = info[k]['fecha']
+          if( fechaId == fechaAlmacenada.toLowerCase() ){
             divDia.style.backgroundColor = '#34b9d4'
           } else {
             continue
@@ -111,7 +112,7 @@ const generaRecuadros = () => {
       expandir.append(iconoExpandir)
       expandir.addEventListener('click',()=>{
         iconoExpandir.setAttribute('class','bi bi-arrows-angle-contract')
-        if (document.getElementById(`${i+1}_${meses[diaMesAño['mes']-1]}_${diaMesAño['año']}`)){
+        if (document.getElementById(`${i} ${mesDelAnio} ${anioExtraido}`)){
           divDia.classList.remove('activo')
           divDia.classList.remove('abierto')
           divDia.removeChild(divDia.childNodes[2])
@@ -121,12 +122,12 @@ const generaRecuadros = () => {
           contenido.setAttribute('class','contenido contenedor_columna')
           divDia.classList.add('abierto')
           const textArea = document.createElement('textarea')
-          textArea.setAttribute('id',`${i+1}_${meses[diaMesAño['mes']-1]}_${diaMesAño['año']}`)
+          textArea.setAttribute('id',`${i} ${mesDelAnio} ${anioExtraido}`)
           textArea.setAttribute('class','textArea')
           if ( info ) {
-            for ( let i=0; i<info.length; i++ ) {
-              if ( textArea.id == info[i]['fecha']) {
-                textArea.value = info[i]['nota']
+            for ( let q=0; q<info.length; q++ ) {
+              if ( textArea.id == info[q]['fecha']) {
+                textArea.value = info[q]['nota']
               }
             }
           } else {
@@ -146,21 +147,21 @@ const generaRecuadros = () => {
           guardaCambios.append(iconoGuardar)
           guardaCambios.addEventListener('click',()=>{
             if ( almacenamiento.getItem('calendario')) {
-              const informacion = document.getElementById(`${i+1}_${meses[diaMesAño['mes']-1]}_${diaMesAño['año']}`).value
+              const informacion = document.getElementById(`${i} ${mesDelAnio} ${diaMesAño['año']}`).value
               let info = JSON.parse(almacenamiento.getItem('calendario'))
               nota = {
                 'id': info.length,
-                'fecha': `${i+1}_${meses[diaMesAño['mes']-1]}_${diaMesAño['año']}`,
+                'fecha': `${i} ${mesDelAnio} ${diaMesAño['año']}`,
                 'nota': `${informacion}`
               }
               info.push(nota)
               almacenamiento.setItem('calendario',JSON.stringify(info))
             } else {
-              const informacion = document.getElementById(`${i+1}_${meses[diaMesAño['mes']-1]}_${diaMesAño['año']}`).value
+              const informacion = document.getElementById(`${i} ${mesDelAnio} ${diaMesAño['año']}`).value
               let info = []
               let nota = {
                 'id': info.length,
-                'fecha': `${i+1}_${meses[diaMesAño['mes']-1]}_${diaMesAño['año']}`,
+                'fecha': `${i} ${mesDelAnio} ${diaMesAño['año']}`,
                 'nota': `${informacion}`
               }
               info.push(nota)
@@ -197,7 +198,7 @@ const rastreaDia = () => {
   let x = diaBuscado.offsetLeft
   let y = diaBuscado.offsetTop
   setTimeout(() => {
-    window.scrollBy(x,y)
+    window.scrollTo(x,y)
   }, 900);
   diaBuscado.childNodes[1].click()
 }
@@ -212,6 +213,6 @@ const rastreaDiaSeleccionado = () => {
   diaBuscado.classList.add('activo')
   diaBuscado.childNodes[1].click()
   let x = diaBuscado.offsetLeft
-  let y = diaBuscado.offsetTop
-  window.scroll(x,y)
+  let y = diaBuscado.offsetTop - 50
+  window.scrollTo(x,y)
 }
