@@ -3,33 +3,17 @@ function pageLoader() {
   contenedor.style.visibility='hidden'
   contenedor.style.opacity='0'
 }
-setTimeout(pageLoader, 1000)
+setTimeout(pageLoader, 500)
+const calendario = document.getElementById('calendario')
 const almacenamiento = window.localStorage
 let fecha = new Date()
-const calendario = document.getElementById('calendario')
 const fechaElegida = document.getElementById('fecha')
-const app = document.getElementById('app')
+const app_calendario = document.getElementById('app_calendario')
 const divCarga = document.getElementById('carga')
 let meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
 const treintaYUno = ['Enero','Marzo','Mayo',,'Julio','Agosto',,'Octubre','Diciembre']
 const treinta = ['Abril','Junio','Septiembre','Noviembre']
 const mesEspecial = ['Febrero']
-const diasDeSemana = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado']
-const asignaFecha = () => {
-  let diaSemana = fecha.getDay()
-  let fechaInput = calendario.value
-  const fragmentoDia = parseInt(fechaInput.slice(8,10))
-  const fragmentoMes = parseInt(fechaInput.slice(5,7))
-  const fragmentoAño = parseInt(fechaInput.slice(0,4))
-  fechaElegida.innerHTML = `Día: ${diasDeSemana[diaSemana]} ${fragmentoDia} de ${meses[fragmentoMes-1]} del año ${fragmentoAño}`
-  divCarga.innerHTML = `Hoy es ${diasDeSemana[diaSemana]} ${fragmentoDia} de ${meses[fragmentoMes-1]} del año ${fragmentoAño}`
-  let diaMesAño = {
-    'dia': fragmentoDia,
-    'mes': fragmentoMes, 
-    'año': fragmentoAño
-  }
-  return diaMesAño
-}
 window.onload=function(){
   let dia = String(fecha.getDate()).padStart(2,'0')
   let mes = String(fecha.getMonth()+1).padStart(2,'0')
@@ -39,12 +23,31 @@ window.onload=function(){
   generaRecuadros()
   rastreaDia()
 }
+const asignaFecha = () => {
+  let fecha = new Date(`${calendario.value}T00:00`).toLocaleDateString('default',{dateStyle:'long'})
+  let diaSemana = new Date(`${calendario.value}T00:00`).toLocaleDateString('default',{weekday:'long'})
+  let fechaInput = calendario.value
+  const fragmentoDia = parseInt(fechaInput.slice(8,10))
+  const fragmentoMes = parseInt(fechaInput.slice(5,7))
+  const fragmentoAño = parseInt(fechaInput.slice(0,4))
+  fechaElegida.innerHTML = `${diaSemana} ${fecha}`
+  divCarga.innerHTML = `Hoy es ${diaSemana} ${fecha}`
+  let diaMesAño = {
+    'dia': fragmentoDia,
+    'mes': fragmentoMes, 
+    'año': fragmentoAño
+  }
+  return diaMesAño
+}
 calendario.onchange = function () {
   asignaFecha()
   generaRecuadros()
   rastreaDiaSeleccionado()
 }
 const generaRecuadros = () => {
+  let calendarioValue = document.getElementById('calendario').value
+  let mesExtraido = calendarioValue.slice(5,7).padStart(2,'0')
+  let anioExtraido = calendarioValue.slice(0,4)
   let diaMesAño = asignaFecha()
   let numDeDias = Number
   const cuantosDias = () => {
@@ -62,24 +65,29 @@ const generaRecuadros = () => {
   }
   let dias = cuantosDias()
   const divsDias = (dias) => {
-    let diaActual = fecha.getDate()
     const seccionRecuadrosDias = document.createElement('section')
-    seccionRecuadrosDias.setAttribute('id',`${meses[diaMesAño['mes']-1]} `)
     seccionRecuadrosDias.setAttribute('class','seccion_calendario contenedor_auto')
-    for ( let i = 0; i<dias; i++ ){
+    let fechaReal
+    let mesDelAnio
+    let diaDeLaSemana
+    for ( let i = 1; i<dias+1; i++ ){
       const divDia = document.createElement('div')
       if ( i < 10 ) {
-        divDia.setAttribute('id',`Dia-0${i+1}`)
+        divDia.setAttribute('id',`Dia-0${i}`)
       } else {
-        divDia.setAttribute('id',`Dia-${i+1}`)
+        divDia.setAttribute('id',`Dia-${i}`)
       }
       divDia.setAttribute('class','contenedor_dia contenedor_columna')
       const titulo = document.createElement('p')
-      if ( i+1 == diaActual ){
-        titulo.innerText = `${diasDeSemana[fecha.getDay()]} ${i+1} ${meses[diaMesAño['mes']-1]}`
+      titulo.setAttribute('class','titulo_dia')
+      if ( i < 10 ) {
+        fechaReal = String(`${anioExtraido}-${mesExtraido}-0${i}`)
       } else {
-        titulo.innerText = `${i+1} ${meses[diaMesAño['mes']-1]}`
+        fechaReal = String(`${anioExtraido}-${mesExtraido}-${i}`)
       }
+      diaDeLaSemana = new Date(`${fechaReal}T00:00`).toLocaleDateString('default',{weekday:'long'})
+      mesDelAnio = new Date(`${fechaReal}T00:00`).toLocaleDateString('default',{month:'long'})
+      titulo.innerText = `${diaDeLaSemana} ${i} ${mesDelAnio}`
       let info = JSON.parse(almacenamiento.getItem('calendario'))
       if ( info != null ) {
         for ( let k=0; k<info.length; k++ ) {
@@ -105,11 +113,13 @@ const generaRecuadros = () => {
         iconoExpandir.setAttribute('class','bi bi-arrows-angle-contract')
         if (document.getElementById(`${i+1}_${meses[diaMesAño['mes']-1]}_${diaMesAño['año']}`)){
           divDia.classList.remove('activo')
+          divDia.classList.remove('abierto')
           divDia.removeChild(divDia.childNodes[2])
           iconoExpandir.setAttribute('class','bi bi-arrows-angle-expand')
         } else {
           const contenido = document.createElement('div')
           contenido.setAttribute('class','contenido contenedor_columna')
+          divDia.classList.add('abierto')
           const textArea = document.createElement('textarea')
           textArea.setAttribute('id',`${i+1}_${meses[diaMesAño['mes']-1]}_${diaMesAño['año']}`)
           textArea.setAttribute('class','textArea')
@@ -122,6 +132,10 @@ const generaRecuadros = () => {
           } else {
             textArea.value = ''
           }
+          textArea.onclick = function(){
+            textArea.style.animation = 'focusExpandir 1s ease-in-out forwards'
+          }
+          textArea.click()
           const guardaCambios = document.createElement('button')
           guardaCambios.setAttribute('class','guardaCambios contenedor_auto')
           const pGuardar = document.createElement('p')
@@ -153,7 +167,7 @@ const generaRecuadros = () => {
               almacenamiento.setItem('calendario',JSON.stringify(info))
             }
             window.location.reload()
-          })
+          })          
           contenido.append(textArea)
           contenido.append(guardaCambios)
           divDia.append(contenido)
@@ -162,33 +176,42 @@ const generaRecuadros = () => {
       divDia.append(expandir)
       seccionRecuadrosDias.append(divDia)
     }
-    app.append(seccionRecuadrosDias)
+    app_calendario.append(seccionRecuadrosDias)
   }
-  if ( !app.hasChildNodes() ) {
+  if ( !app_calendario.hasChildNodes() ) {
     divsDias(dias)
   } else {
-    app.removeChild(app.childNodes[4])
+    app_calendario.removeChild(app_calendario.childNodes[0])
     divsDias(dias)
   }
 }
 const rastreaDia = () => {
   let dia = String(fecha.getDate()).padStart(2,'0')
-  const diaBuscado = document.getElementById(`Dia-${dia}`)
+  let diaBuscado
+  if ( diaBuscado < 10){
+    diaBuscado = document.getElementById(`Dia-0${dia}`)
+  } else {
+    diaBuscado = document.getElementById(`Dia-${dia}`)
+  }
   diaBuscado.classList.add('activo')
-
+  let x = diaBuscado.offsetLeft
+  let y = diaBuscado.offsetTop
   setTimeout(() => {
-    let x = diaBuscado.offsetLeft
-    let y = diaBuscado.offsetTop
     window.scrollBy(x,y)
-  }, 750);
+  }, 900);
   diaBuscado.childNodes[1].click()
 }
 const rastreaDiaSeleccionado = () => {
-  let fechaSeleccionada = document.getElementById('calendario').value.slice(8)
-  const diaBuscado = document.getElementById(`Dia-${fechaSeleccionada}`)
+  let diaSeleccionado = parseInt(document.getElementById('calendario').value.slice(8))
+  let diaBuscado
+  if ( diaSeleccionado < 10 ) {
+    diaBuscado = document.getElementById(`Dia-0${diaSeleccionado}`)
+  } else {
+    diaBuscado = document.getElementById(`Dia-${diaSeleccionado}`)
+  }
   diaBuscado.classList.add('activo')
   diaBuscado.childNodes[1].click()
   let x = diaBuscado.offsetLeft
   let y = diaBuscado.offsetTop
-  window.scrollBy(x,y)
+  window.scroll(x,y)
 }
