@@ -1,13 +1,13 @@
-window.onload=function(){
-  let contenedor=document.getElementById('contenedor_carga')
-  contenedor.style.visibility='hidden'
-  contenedor.style.opacity='0'
+window.onload = function(){
+  let contenedor = document.getElementById('contenedor_carga')
+  contenedor.style.visibility = 'hidden'
+  contenedor.style.opacity = '0'
   const botonH = document.getElementById('boton-home')
   botonH.style.visibility = 'hidden'
   botonH.style.opacity = '0'
 }
-let letra=0
-const letraPorLetra=()=>{
+let letra = 0
+const letraPorLetra = ()=>{
   const nombreHUno = document.querySelector('.letra-por-letra')
   let presentacion = 'Hola, mi nombre es Fernando.'
   if(letra<presentacion.length){
@@ -17,7 +17,6 @@ const letraPorLetra=()=>{
   }
 }
 letraPorLetra()
-/* TOOLTIP FUNCTION */
 function muestraTooltip(e) {
   let tools = document.querySelectorAll('.tools')
   tools.forEach(tooltip => {
@@ -25,33 +24,28 @@ function muestraTooltip(e) {
     tooltip.style.top = e.clientY + 25 + 'px'
   })
 }
-const saberMasSobreMi=()=>{
+const saberMasSobreMi = ()=>{
   const botonSaber = document.getElementById('boton-saber')
   botonSaber.addEventListener('click', () => {
-    //div contenedor para esconderlo
     const divContenedor = document.getElementById('contenedor')
     divContenedor.setAttribute('hidden','hidden')
-    //crea nuevo div
-    const divNuevoContenedor=document.createElement('DIV')
+    const divNuevoContenedor = document.createElement('DIV')
     divNuevoContenedor.setAttribute('class','nuevo-contenedor')
     divNuevoContenedor.setAttribute('id','nuevo-contenedor')
-    //Elementos H2 y P que estarán al lado izquierdo del nuevo contenedor + append de los elementos en el divNuevoContenedor
-    const saberHDos=document.createElement('H2')
+    const saberHDos = document.createElement('H2')
     saberHDos.setAttribute('id','hSaber')
     saberHDos.innerHTML = 'Conoce más sobre mí'
-    divNuevoContenedor.appendChild(saberHDos)
+    divNuevoContenedor.append(saberHDos)
     const saberP = document.createElement('P')
     saberP.setAttribute('id','pSaber')
     saberP.innerHTML = 'Soy una persona tranquila con gustos sencillos pero apasionado sobre ellos aunque me disgustan los excesos. A continuación, 4 de mis cosas favoritas.'
-    divNuevoContenedor.appendChild(saberP)
-    //contenedor de cartas
+    divNuevoContenedor.append(saberP)
     const contieneCartas = document.createElement('div')
     contieneCartas.setAttribute('id','contieneCartas')
-    //div para cada carta
-    const contenedorCartaUno=document.createElement('div')
-    const contenedorCartaDos=document.createElement('div')
-    const contenedorCartaTres=document.createElement('div')
-    const contenedorCartaCuatro=document.createElement('div')
+    const contenedorCartaUno = document.createElement('div')
+    const contenedorCartaDos = document.createElement('div')
+    const contenedorCartaTres = document.createElement('div')
+    const contenedorCartaCuatro = document.createElement('div')
     contenedorCartaUno.setAttribute('class','card')
     contenedorCartaUno.setAttribute('id','carta-imagen-uno')
     contenedorCartaDos.setAttribute('class','card')
@@ -60,11 +54,10 @@ const saberMasSobreMi=()=>{
     contenedorCartaTres.setAttribute('id','carta-imagen-tres') 
     contenedorCartaCuatro.setAttribute('class','card')
     contenedorCartaCuatro.setAttribute('id','carta-imagen-cuatro')
-    //Elementos img
-    const imagenUno=document.createElement('img')
-    const imagenDos=document.createElement('img')
-    const imagenTres=document.createElement('img')
-    const imagenCuatro=document.createElement('img')
+    const imagenUno = document.createElement('img')
+    const imagenDos = document.createElement('img')
+    const imagenTres = document.createElement('img')
+    const imagenCuatro = document.createElement('img')
     imagenUno.setAttribute('src','imagenes/chrono-trigger.png')
     imagenUno.setAttribute('id','imagen1')
     imagenUno.setAttribute('class','imagenMuestra')
@@ -77,7 +70,6 @@ const saberMasSobreMi=()=>{
     imagenCuatro.setAttribute('src','imagenes/flan.png')
     imagenCuatro.setAttribute('id','imagen4')
     imagenCuatro.setAttribute('class','imagenMuestra')
-    // TOOLTIP
     const tool1 = document.createElement('div')
     const tool2 = document.createElement('div')
     const tool3 = document.createElement('div')
@@ -90,93 +82,83 @@ const saberMasSobreMi=()=>{
     tool2.setAttribute('id','tooltip2')
     tool3.setAttribute('id','tooltip3')
     tool4.setAttribute('id','tooltip4')
-    tool1.appendChild(imagenUno)
-    tool2.appendChild(imagenDos)
-    tool3.appendChild(imagenTres)
-    tool4.appendChild(imagenCuatro)
-    contenedorCartaUno.appendChild(tool1)
-    contenedorCartaDos.appendChild(tool2)
-    contenedorCartaTres.appendChild(tool3)
-    contenedorCartaCuatro.appendChild(tool4)
+    tool1.append(imagenUno)
+    tool2.append(imagenDos)
+    tool3.append(imagenTres)
+    tool4.append(imagenCuatro)
+    contenedorCartaUno.append(tool1)
+    contenedorCartaDos.append(tool2)
+    contenedorCartaTres.append(tool3)
+    contenedorCartaCuatro.append(tool4)
     contenedorCartaUno.addEventListener('mousemove',muestraTooltip)
     contenedorCartaDos.addEventListener('mousemove',muestraTooltip)
     contenedorCartaTres.addEventListener('mousemove',muestraTooltip)
     contenedorCartaCuatro.addEventListener('mousemove',muestraTooltip)
-    //divs img-contenedores
-    const textoDivUno=document.createElement('div')
-    const textoDivDos=document.createElement('div')
-    const textoDivTres=document.createElement('div')
-    const textoDivCuatro=document.createElement('div')
+    const textoDivUno = document.createElement('div')
+    const textoDivDos = document.createElement('div')
+    const textoDivTres = document.createElement('div')
+    const textoDivCuatro = document.createElement('div')
     textoDivDos.setAttribute('class','texto-contenedor')
     textoDivUno.setAttribute('class','texto-contenedor')
     textoDivTres.setAttribute('class','texto-contenedor')
     textoDivCuatro.setAttribute('class','texto-contenedor')
-    //Elementos H4 + appends al texto-contenedor 
-    const hElementoUno=document.createElement('h4')
+    const hElementoUno = document.createElement('h4')
     hElementoUno.setAttribute('id','hCuatroCartaUno')
-    hElementoUno.innerHTML='Chrono Trigger'
-    textoDivUno.appendChild(hElementoUno)
-    const hElementoDos=document.createElement('h4')
+    hElementoUno.innerHTML = 'Chrono Trigger'
+    textoDivUno.append(hElementoUno)
+    const hElementoDos = document.createElement('h4')
     hElementoDos.setAttribute('id','hCuatroCartaDos')
-    hElementoDos.innerHTML='El Silencio de los Inocentes'
-    textoDivDos.appendChild(hElementoDos)
-    const hElementoTres=document.createElement('h4')
+    hElementoDos.innerHTML = 'El Silencio de los Inocentes'
+    textoDivDos.append(hElementoDos)
+    const hElementoTres = document.createElement('h4')
     hElementoTres.setAttribute('id','hCuatroCartaTres')
-    hElementoTres.innerHTML='Siddhartha'
-    textoDivTres.appendChild(hElementoTres)
-    const hElementoCuatro=document.createElement('h4')
+    hElementoTres.innerHTML = 'Siddhartha'
+    textoDivTres.append(hElementoTres)
+    const hElementoCuatro = document.createElement('h4')
     hElementoCuatro.setAttribute('id','hCuatroCartaCuatro')
-    hElementoCuatro.innerHTML='Flan'
-    textoDivCuatro.appendChild(hElementoCuatro)
-    // Elementos P
-    const pTextoImgUno=document.createElement('p')
+    hElementoCuatro.innerHTML = 'Flan'
+    textoDivCuatro.append(hElementoCuatro)
+    const pTextoImgUno = document.createElement('p')
     pTextoImgUno.setAttribute('id','pCartaUno')
     pTextoImgUno.innerHTML='En lo personal, el mejor videojuego de la historia.'
-    textoDivUno.appendChild(pTextoImgUno)
+    textoDivUno.append(pTextoImgUno)
     const pTextoImgDos = document.createElement('p')
     pTextoImgDos.setAttribute('id','pCartaDos')
     pTextoImgDos.innerHTML='Suspenso constante y adictivo, casi palpable.'
-    textoDivDos.appendChild(pTextoImgDos)
-    const pTextoImgTres=document.createElement('p')
+    textoDivDos.append(pTextoImgDos)
+    const pTextoImgTres = document.createElement('p')
     pTextoImgTres.setAttribute('id','pCartaTres')
-    pTextoImgTres.innerHTML='Todo ser vivo posee una joya mágica pero no son todos conscientes de ello.'
-    textoDivTres.appendChild(pTextoImgTres)
-    const pTextoImgCuatro=document.createElement('p')
+    pTextoImgTres.innerHTML = 'Todo ser vivo posee una joya mágica pero no son todos conscientes de ello.'
+    textoDivTres.append(pTextoImgTres)
+    const pTextoImgCuatro = document.createElement('p')
     pTextoImgCuatro.setAttribute('id','pCartaCuatro')
-    pTextoImgCuatro.innerHTML='Delicia de postre, mi favorito por sobre todos.'
-    textoDivCuatro.appendChild(pTextoImgCuatro)
-    //Append de los elementos H4 y P en su respectiva carta 
-    contenedorCartaUno.appendChild(textoDivUno)
-    contenedorCartaDos.appendChild(textoDivDos)
-    contenedorCartaTres.appendChild(textoDivTres)
-    contenedorCartaCuatro.appendChild(textoDivCuatro)
-    //Append del div de cada carta al nuevo contenedor
-    contieneCartas.appendChild(contenedorCartaUno)
-    contieneCartas.appendChild(contenedorCartaDos)
-    contieneCartas.appendChild(contenedorCartaTres)
-    contieneCartas.appendChild(contenedorCartaCuatro)
-    divNuevoContenedor.appendChild(contieneCartas)
-    //Div contenedor del botón regresar
-    const botonRegresar=document.createElement('button')
+    pTextoImgCuatro.innerHTML = 'Delicia de postre, mi favorito por sobre todos.'
+    textoDivCuatro.append(pTextoImgCuatro)
+    contenedorCartaUno.append(textoDivUno)
+    contenedorCartaDos.append(textoDivDos)
+    contenedorCartaTres.append(textoDivTres)
+    contenedorCartaCuatro.append(textoDivCuatro)
+    contieneCartas.append(contenedorCartaUno)
+    contieneCartas.append(contenedorCartaDos)
+    contieneCartas.append(contenedorCartaTres)
+    contieneCartas.append(contenedorCartaCuatro)
+    divNuevoContenedor.append(contieneCartas)
+    const botonRegresar = document.createElement('button')
     botonRegresar.setAttribute('type','button')
     botonRegresar.setAttribute('id','regresar-saber')
     botonRegresar.setAttribute('class','regresar-saber')
-    //span para agregar el icono y texto
-    const iconoTexto=document.createElement('span')
-    const iconoSpan=document.createElement('i')
+    const iconoTexto = document.createElement('span')
+    const iconoSpan = document.createElement('i')
     iconoSpan.setAttribute('class','bi bi-arrow-return-left')
-    const textoSpan=document.createTextNode(' Cerrar')
-    iconoTexto.appendChild(iconoSpan)
-    iconoTexto.appendChild(textoSpan)
-    //texto del boton regresar
-    botonRegresar.appendChild(iconoTexto);
-    //div que contiene al boton regresar
-    const divBotonRegresar=document.createElement('div')
+    const textoSpan = document.createTextNode(' Cerrar')
+    iconoTexto.append(iconoSpan)
+    iconoTexto.append(textoSpan)
+    botonRegresar.append(iconoTexto);
+    const divBotonRegresar = document.createElement('div')
     divBotonRegresar.setAttribute('class','div-regresar')
     divBotonRegresar.setAttribute('id','div-regresar')
-    divBotonRegresar.appendChild(botonRegresar)
-    //append div con boton regresar en nuevo-contenedor
-    divNuevoContenedor.appendChild(divBotonRegresar)
+    divBotonRegresar.append(botonRegresar)
+    divNuevoContenedor.append(divBotonRegresar)
     botonRegresar.addEventListener('click', ()=> {
       let hidden = divContenedor.getAttribute('hidden')
       if(hidden){
@@ -184,8 +166,8 @@ const saberMasSobreMi=()=>{
         divContenedor.removeAttribute('hidden')
       }
     });
-    const seccionSobreMi=document.getElementById('sobre-mi')
-    seccionSobreMi.appendChild(divNuevoContenedor)
+    const seccionSobreMi = document.getElementById('sobre-mi')
+    seccionSobreMi.append(divNuevoContenedor)
   });
 }
 saberMasSobreMi()
@@ -201,7 +183,7 @@ const clickImgPrincipal = () => {
       imgCalamardo.setAttribute('class','nueva-imagen')
       imgCalamardo.setAttribute('src','imagenes/calamardini-nobg.png')
       imgCalamardo.setAttribute('alt','Un perro blanco llamado Calamardo')
-      divHeroPrincipal.appendChild(imgCalamardo)
+      divHeroPrincipal.append(imgCalamardo)
     }
   });
 }
@@ -222,7 +204,6 @@ aparece()
 const botonHome = () => {
   const botonH = document.getElementById('boton-home')
   const navigator = document.getElementById('navigator')
-
   window.addEventListener('scroll', () => {
     const posicion = navigator.getBoundingClientRect()
     if ( posicion.top >= 0 && posicion.bottom <= window.innerHeight ) {
@@ -256,7 +237,14 @@ const proyectos = [
     nombre: 'Bonanza',
     urlImg: 'imagenes/tercer-proyecto.png',
     altImg: 'Página web de venta de artículos.',
-    descripcion: 'Página web de venta de artículos (toda la información de estos artículos proviene de fakestoreapi.com) contiene bolsa (carrito de compras), log-in y registro. Toda la información de usuario se registra en localStorage o sessionStorage, dependiendo del log-in que desee el usuario, el registro hace un log-in que se mantiene a pesar del cierre de la página (aun sigo mejorándola).'
+    descripcion: 'Página web de venta de artículos (data artículos proveniente de fakestoreapi.com) contiene bolsa (carrito de compras), log-in y registro. Información de usuario registrada en localStorage o sessionStorage, dependerá del log-in que desee el usuario.'
+  },
+  imgCuatro = {
+    id: 4,
+    nombre: 'calenDiario',
+    urlImg: 'imagenes/cuarto-proyecto.png',
+    altImg: 'Calendario, posibles usos: notas, recuerdos diario.',
+    descripcion: 'Diario, recuerdos o toma de notas que se almacena en el día deseado.'
   }
 ]
 const carruselPropio = () => {
@@ -268,30 +256,22 @@ const carruselPropio = () => {
     } else {
       objeto.setAttribute('class', 'objeto contenedor_columna')
     }
-
     const imagen = document.createElement('img')
     imagen.setAttribute('src',`${proyectos[o]['urlImg']}`)
     imagen.setAttribute('class','imagenCarrusel')
     imagen.setAttribute('alt',`${proyectos[o]['altImg']}`)
-
     const nombre = document.createElement('h2')
     nombre.setAttribute('class','titulo_producto')
     nombre.innerText = `${proyectos[o]['nombre']}`
-
     const descripcion = document.createElement('p')
     descripcion.setAttribute('class','descripcionProyecto')
     descripcion.innerText = `${proyectos[o]['descripcion']}`
-
     const divTxtContenido = document.createElement('div')
     divTxtContenido.setAttribute('class','contenedor_texto contenedor_columna')
-
     objeto.append(imagen)
-
     divTxtContenido.append(nombre)
     divTxtContenido.append(descripcion)
-
     objeto.append(divTxtContenido)
-
     let activo = objeto.className.match('activo') ? true : false
     if ( activo ) {
       carrusel.append(objeto)
@@ -300,7 +280,6 @@ const carruselPropio = () => {
       carrusel.append(objeto)
     }
   }
-
   const botones = document.getElementById('botones')
   let indice = 0
   const elementos = carrusel.children
@@ -312,7 +291,6 @@ const carruselPropio = () => {
   siguiente.innerText = 'Siguiente'
   botones.append(previo)
   botones.append(siguiente)
-
   previo.addEventListener('click',()=>{
     elementos[indice].classList.remove('activo')
     elementos[indice].setAttribute('hidden','true')
