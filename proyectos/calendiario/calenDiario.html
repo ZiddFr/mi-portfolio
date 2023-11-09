@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Metadatos -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Fernando">
+  <meta name="description" content="Aplicación 'CalenDiario' de Fernando">
+  <link rel="stylesheet" href="./calendiario.css">
+  <!-- Bootstrap icon 1.11.1 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- Titulo -->
+  <title>CalenDiario</title>
+</head>
+<body>
+  <!-- preloader page -->
+  <div id="contenedor_carga" class="contenedor_auto">
+    <div id="carga"></div>
+  </div>
+  <!-- app -->
+  <div id="app" class="contenedor_columna">
+    <input type="date" autocomplete="on" id="calendario">
+    <p id="fecha"></p>
+    <div id="botones">
+    </div>
+    <main id="app_calendario"></main>
+  </div>
+  <script src="./calendiario.js"></script>
+</body>
+</html>
