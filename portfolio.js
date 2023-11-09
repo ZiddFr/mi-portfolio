@@ -260,6 +260,7 @@ const carruselPropio = () => {
     imagen.setAttribute('src',`${proyectos[o]['urlImg']}`)
     imagen.setAttribute('class','imagenCarrusel')
     imagen.setAttribute('alt',`${proyectos[o]['altImg']}`)
+
     const nombre = document.createElement('h2')
     nombre.setAttribute('class','titulo_producto')
     nombre.innerText = `${proyectos[o]['nombre']}`
