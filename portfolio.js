@@ -295,7 +295,7 @@ const carruselPropio = () => {
     elementos[indice].classList.remove('activo')
     elementos[indice].setAttribute('hidden','true')
     if ( indice == 0 ) {
-      indice = 3
+      indice = 4
     }
     indice--
     elementos[indice].classList.add('activo')
@@ -306,7 +306,7 @@ const carruselPropio = () => {
     elementos[indice].classList.remove('activo')
     elementos[indice].setAttribute('hidden','true')
     indice++
-    if ( indice == 3 ){
+    if ( indice == 4 ){
       indice = 0
     }
     elementos[indice].classList.add('activo')
