@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { HashRouter, createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ReactDOM from 'react-dom/client'
 import { App } from './App.jsx'
 
@@ -8,7 +8,7 @@ import { UserProfile } from "./components/UserProfile.jsx"
 import { ShoppingCart } from "./components/ShoppingCart.jsx"
 import { Loginregisterform } from './components/Loginregisterform.jsx'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path:"/",
     element: <App />,
