@@ -10,10 +10,6 @@ import { Loginregisterform } from './components/Loginregisterform.jsx'
 
 const router = createHashRouter([
   {
-    path: "/proyectos/ecommerce/Bonanza"
-    element: <Bonanza />
-  },
-  {
     path:"/",
     element: <App />,
   },
