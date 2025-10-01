@@ -1,0 +1,26 @@
+.generalCartButton{
+  width:25px;
+  height: 25px;
+  border: none;
+  border-radius: 7px;
+}
+/*
+.guestCartType{
+
+}
+.productForGuestCartType{
+
+}
+.userCartType{
+
+}
+.addToCart{
+
+}
+.removeFromCart{
+
+}
+/* generic className for add&remove Cart button
+.productForUserCartType{
+
+} */

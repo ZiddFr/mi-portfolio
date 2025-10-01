@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STYLEEEEES</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .contenedor{
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        border: 1px solid black;
+      }
+      .dropDown{
+        border: 1px solid black;
+        cursor: pointer;
+        border-radius: 7px;
+        position: relative;
+        display: inline-block;
+        z-index: 5;
+      }
+      #dropStylesMenu{
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      #dropStylesMenu p{
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      #dropStylesMenu.show{
+        display: block !important;
+      }
+ 
+      .lightMindBlue {
+        background-color: #E3FDFD;
+      }
+      .darkMint {
+        background-color: #222831;
+      }
+      .mintedDarkness{
+        background-color: #212121;
+      }
+      .lavenderTown{
+        background-color: #F4EEFF;
+      }
+      .sunsetOverdrive{
+        background-color: #2B2E4A;
+      }
+      .stoneOcean{
+        background-color: #E4F9F5;
+      }
+      .beMeMeBee{
+        background-color: #222831;
+      }
+      .faddingEmerald{
+        background-color: #1FAB89;
+      }
+      .rayquaza{
+        background-color: #589E7D;
+      }
+ 
+    </style>
+  </head>
+  <body>
+    <div id="pageTheme" class="contenedor"></div>
+    <div id="dropDown" class="dropDown">
+      <button id="changeButtonStyle">Click</button>
+      <div id="dropStylesMenu">
+        <p class="lightMindBlue" onclick="choosedTheme('lightMindBlue')">Light Mind Blue</p>
+        <p class="darkMint" onclick="choosedTheme('darkMint')">Dark Mint</p>
+        <p class="mintedDarkness" onclick="choosedTheme('mintedDarkness')">Minted Darkness</p>
+        <p class="lavenderTown" onclick="choosedTheme('lavenderTown')">Lavender Town</p>
+        <p class="sunsetOverdrive" onclick="choosedTheme('sunsetOverdrive')">Sunset Overdrive </p>
+        <p class="stoneOcean" onclick="choosedTheme('stoneOcean')">Stone Ocean</p>
+        <p class="beMeMeBee" onclick="choosedTheme('beMeMeBee')">Be me, Me bee</p>
+        <p class="faddingEmerald" onclick="choosedTheme('faddingEmerald')">Fadding Emerald</p>
+        <p class="rayquaza" onclick="choosedTheme('rayquaza')">Rayquaza</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    const changeButtonStyle = document.getElementById('changeButtonStyle')
+    changeButtonStyle.addEventListener("click",()=>{
+      let dropStylesMenu = document.getElementById("dropStylesMenu")
+      dropStylesMenu.classList.toggle('show')
+    })
+    window.onclick = function(event) {
+      if(!event.target.matches('#changeButtonStyle')){
+        document.getElementById('dropStylesMenu').classList.remove('show')
+      }
+    }  
+    
+    const choosedTheme = (choosedTheme) => {
+      const pageThemeContainer = document.getElementById("pageTheme")
+      const themeButton = document.getElementById("changeButtonStyle")
+      if(pageThemeContainer.classList.length >= 2){
+        pageThemeContainer.classList.remove(`${pageThemeContainer.classList[1]}`)
+        pageThemeContainer.classList.add(`${choosedTheme}`)
+        themeButton.classList.remove(themeButton.classList[0])
+        themeButton.classList.add(`${choosedTheme}`)
+      } else {
+        if(pageThemeContainer.classList.length <= 1){
+          pageThemeContainer.classList.add(`${choosedTheme}`)
+          themeButton.classList.add(`${choosedTheme}`)
+        }
+      }
+      document.getElementById("dropStylesMenu").classList.toggle('show')
+    }     
+    </script>
+</html>

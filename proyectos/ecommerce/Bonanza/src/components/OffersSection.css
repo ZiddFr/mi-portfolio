@@ -1,0 +1,128 @@
+#offers__section__wrapper {
+  margin: 0;
+  padding: 2.5em 0em;
+}
+.preview_offers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.auxiliarOne .auxiliarTwo {
+  width: fit-content;
+  height: fit-content;
+}
+.forEachOffer {
+  padding: 10px 0;
+  margin: 10px;
+  height: 25rem;
+  width: 50rem;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.forEachOffer:hover {
+  .searchOffer-title {
+    color: black;
+  }
+  .originalPrice {
+    color:gray;
+  }
+}
+.offerDivs{
+  align-items: center;
+  justify-content: center;
+}
+.productOffer-img {
+  margin-left: 10px;
+  width: 20rem;
+  height: 20rem; 
+  margin-bottom: 10px;
+  border-radius: 7px;
+  object-fit: cover;
+  align-self: center;
+}
+.divForButtText {
+  margin-right: 2em;
+  border-radius: 7px;
+  width: 12rem;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: space-between;
+}
+.previewText {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.previewText > .preview_offer-title {
+  height: 50px;
+  overflow: hidden;
+}
+
+.descriptionOffer {
+  height: 50px;
+  overflow: hidden;
+}
+.originalPrice {
+  font-size: smaller;
+  font-weight: lighter;
+  text-decoration: line-through;
+  color: gray;
+}
+.OfferPrice {
+  font-size: larger;
+  font-weight: bold;
+  color: red;
+}
+.addToCart {
+  width: 100px;
+  height: 50px;
+  align-self: center;
+  border-color: transparent;
+  border-radius: 7px;
+  margin-bottom: 1em;
+}
+.auxiliarOne {
+  display: flex;
+  margin-bottom: 50px;
+}
+.auxiliarTwo {
+  display: flex;
+  gap: 25px;
+}
+#previousOffer {
+  font-size: xx-large;
+  background-color: transparent;
+  translate: 34px 0;
+  min-height: 20rem;
+  font-size: x-large;
+  border: none;
+  border-radius: 0 150px 150px 0;
+  z-index: 2;
+}
+#nextOffer {
+  font-size: xx-large;
+  font-weight: bolder;
+  background-color: transparent;
+  translate: -34px 0;
+  order: 3;
+  min-height: 20rem;
+  font-size: x-large;
+  border: none;
+  border-radius: 150px 0 0 150px;
+  z-index: 2;
+}
+#previousOffer p, #nextOffer p{
+  font-weight: 1000;
+  color: black;
+  transform: scaleY(2);
+}
+#previousOffer:hover, #nextOffer:hover {
+  cursor: pointer;
+  background: rgb(57, 62, 70, 0.2);
+}

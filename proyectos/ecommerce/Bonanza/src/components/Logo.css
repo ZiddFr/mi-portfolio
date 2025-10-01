@@ -1,0 +1,57 @@
+.contenedor_logo{
+  opacity: 0;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: show 1s cubic-bezier(0,0,0,0) forwards;
+  animation-delay: 3.6s;
+}
+@keyframes show{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#logo {
+  font-size: large;
+  text-decoration: none;
+  color: transparent;
+  display: inherit;
+  align-items: center;
+  gap: 10px;
+}
+#img_logo{
+  height: 50px;
+  width: 50px;
+  filter: drop-shadow(
+  0 0 4px rgba(255, 255, 255, 0.8)
+  );
+}
+.pageTitle {
+  color: transparent;
+}
+.rainbow {
+    text-align: center;
+    text-decoration: underline;
+    letter-spacing: 2px;
+}
+.rainbow:hover {
+    background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 1s ease-in-out infinite;
+    background-size: 400% 100%;
+}
+@keyframes rainbow_animation {
+    0%,100% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
+}

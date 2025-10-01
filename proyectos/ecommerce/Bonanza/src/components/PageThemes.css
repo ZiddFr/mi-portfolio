@@ -1,0 +1,41 @@
+.dropDown{
+  cursor: pointer;
+  border-radius: 7px;
+  position: relative;
+  display: inline-block;
+  z-index: 5;
+}
+#dropStylesMenu{
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  width: max-content;
+  height: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+  right: 1px;
+}
+#dropStylesMenu.hide {
+  display: none;
+}
+#dropStylesMenu button{
+  width: 100%;
+  background-color: #FFF;
+  border: none;
+}
+#dropStylesMenu p{
+  color: black;
+  font-size: 16px;
+  text-decoration: none;
+  display: block;
+}
+#dropStylesMenu.show{
+  display: flex !important;
+  justify-content: center;
+  flex-direction: column;
+}
+#pageThemeFile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
