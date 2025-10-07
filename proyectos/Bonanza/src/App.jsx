@@ -99,51 +99,40 @@ export function App() {
 
   useEffect(()=>{
     // is there a logged user?
-    if(userPreferences["logStatus"] == true){
       //
-      let cookie = document.cookie
-      const userToken = cookie.split("=")[1]
-      axios({
-        method: "GET",
-        url: "https://dummyjson.com/auth/me",
-        headers: {
-          Authorization: `Bearer ${userToken}`
-        }
-      })
-      .then(res=>{
-        if(res.status == 200){
-          const userPreferences = JSON.parse(localStorage.getItem("userPreferences"))
-          setUserId(userPreferences["userId"])
-          setPageTheme(userPreferences["pageTheme"])
-          setLogStatus(userPreferences["logStatus"])
-          console.log(userPreferences["logStatus"])
-          setCartItems(userPreferences["cartItems"])
-        } else {
-          setUserId(0)
-          setPageTheme("faddingEmerald")
-          setLogStatus(false)
-          setCartItems([])
-        } 
-      })
-      .catch(error=>{
+    let cookie = document.cookie
+    const userToken = cookie.split("=")[1]
+    axios({
+      method: "GET",
+      url: "https://dummyjson.com/auth/me",
+      headers: {
+        Authorization: `Bearer ${userToken}`
+      }
+    })
+    .then(res=>{
+      if(res.status == 200){
+        const userPreferences = JSON.parse(localStorage.getItem("userPreferences"))
+        setUserId(userPreferences["userId"])
+        setPageTheme(userPreferences["pageTheme"])
+        setLogStatus(userPreferences["logStatus"])
+        console.log(userPreferences["logStatus"])
+        setCartItems(userPreferences["cartItems"])
+      } else {
         setUserId(0)
         setPageTheme("faddingEmerald")
         setLogStatus(false)
         setCartItems([])
-        console.log(error)
-      })
-      //
-    } else {
-      if(userPreferences["logStatus"] == false){
-        userPreferences = {
-          userId: 0,
-          pageTheme: "faddingEmerald",
-          logStatus: false,
-          cartItems: []
-        }
-        localStorage.setItem("userPreferences",JSON.stringify(userPreferences))
-      }
-    }
+      } 
+    })
+    .catch(error=>{
+      setUserId(0)
+      setPageTheme("faddingEmerald")
+      setLogStatus(false)
+      setCartItems([])
+      console.log(error)
+    })
+    //
+    
   },[])
   /* useMemo */
   //useState 're-renders' this two components so I had to use useMemo to prevent the 're-rendering'
